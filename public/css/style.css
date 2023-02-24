@@ -84,6 +84,32 @@ body {
   outline: 0 !important;
 }
 
+.dropdown .dropbtn {
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.dropdown button {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+.dropdown button:active {
+  border: none;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  background-color: #000;
+  width: 150px;
+}
+
 .search_bar {
   width: 100%;
   display: flex;
