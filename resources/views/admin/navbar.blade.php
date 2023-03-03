@@ -1,4 +1,4 @@
-<div class="container-scroller">
+
     <div class="row p-0 m-0 proBanner" id="proBanner">
       <div class="col-md-12 p-0 m-0">
         <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
@@ -29,7 +29,7 @@
           <span class="nav-link">Navigation</span>
         </li>
         <li class="nav-item menu-items">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="{{ url('/users') }}">
             <span class="menu-icon">
               <i class="mdi mdi-speedometer"></i>
             </span>
@@ -38,7 +38,7 @@
         </li>
         
         <li class="nav-item menu-items">
-          <a class="nav-link" href="pages/forms/basic_elements.html">
+          <a class="nav-link" href="{{ url('/restaurants') }}">
             <span class="menu-icon">
               <i class="mdi mdi-playlist-play"></i>
             </span>
@@ -46,7 +46,7 @@
           </a>
         </li>
         <li class="nav-item menu-items">
-          <a class="nav-link" href="pages/tables/basic-table.html">
+          <a class="nav-link" href="{{ url('/delivery') }}">
             <span class="menu-icon">
               <i class="mdi mdi-table-large"></i>
             </span>
@@ -64,8 +64,3 @@
         
       </ul>
     </nav>
-
-
-    
-        <!-- partial -->
-      </div>
