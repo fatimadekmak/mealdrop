@@ -24,6 +24,7 @@ Route::get('/restaurants', [AdminController::class,'restaurant']);
 
 Route::get('/delivery', [AdminController::class,'delivery']);
 
+Route::get('/restaurant-form', [HomeController::class, 'restaurantForm']);
 
 Route::get('/deleteuser/{id}', [AdminController::class,'deleteuser']);
 

@@ -13,6 +13,11 @@ class HomeController extends Controller
         return view('home');
     }
 
+    
+    public function restaurantForm() {
+        return view('restaurant.registerForm');
+    }
+
     public function redirects()
     {
         $usertype = Auth::user()->user_type;
