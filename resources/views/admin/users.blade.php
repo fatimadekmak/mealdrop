@@ -23,7 +23,7 @@
                 </tr>
 
                 @foreach ($data as $data)
-                    
+                @if ($data->user_type=="0" || $data->user_type=="1")    
                 <tr align="center">
                     <td>{{ $data->name }}</td>
                     <td>{{ $data->email }}</td>
@@ -34,7 +34,7 @@
                     <td><a >Not Allowed</a></td>
                     @endif
                 </tr>
-                
+                @endif
                 @endforeach
             </table>
 

@@ -85,7 +85,7 @@
                     </x-button>
                 </div>
                 <a href="{{ url('/restaurant-form') }}" class="reg_btn">Register your restaurant</a>
-                <a href="#" class="reg_btn">Register your delivery company</a>
+                <a href="{{ url('/delivery-form') }}" class="reg_btn">Register your delivery company</a>
             </form>
         </x-authentication-card>
     </x-guest-layout>
