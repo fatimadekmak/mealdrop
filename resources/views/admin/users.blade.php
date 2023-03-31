@@ -14,6 +14,8 @@
         
         <div style="position: relative; top: 60px; right: -150px">
 
+          <h2>Customer and Admin Accounts</h2>
+
             <table bgcolor="grey" border="3px">
 
                 <tr>
