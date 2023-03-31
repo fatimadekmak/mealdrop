@@ -6,12 +6,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    @include('restaurant.restcss')
+    @include('delivery.delcss')
   </head>
   <body>
     <div class="container-scroller">
-      @include('restaurant.restnavbar')
+      @include('delivery.delnavbar')
     </div>
-    @include('restaurant.restscript')
+    @include('delivery.delscript')
   </body>
 </html>

@@ -57,5 +57,7 @@ class HomeController extends Controller
             return view('home');
         else if ($usertype == '2')  
             return view('restaurant.resthome');
+        else 
+            return view('delivery.delhome');
     }
 }
