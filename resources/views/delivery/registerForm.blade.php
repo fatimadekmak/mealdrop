@@ -12,7 +12,8 @@
 
 <body>
     <div class="container">
-        <form class="row g-3 mt-5" method="POST">
+        <form class="row g-3 mt-5" action="/processDelivRequest" method="POST">
+            @csrf
             <div class="col-md-6">
                 <label for="delivName" class="form-label">Delivery Company Name</label>
                 <input type="text" class="form-control" name="delivName">
@@ -31,11 +32,11 @@
             </div>
             <div class="col-md-6">
                 <label for="employees" class="form-label">Number of drivers in your company</label>
-                <input type="email" class="form-control" name="employees">
+                <input type="text" class="form-control" name="employees">
             </div>
             <div class="col-md-6">
                 <label for="working_hours" class="form-label">Working Hours</label>
-                <input type="email" class="form-control" name="working_hours" placeholder="8:00-00:00">
+                <input type="text" class="form-control" name="working_hours" placeholder="8:00-00:00">
             </div>
             <small>once you submit this request, it will be sent and reviewed by MealDrop's admin. Your request will be processed in 24hrs and you will receive an email with the decision.</small>
             <div class="col-12">
