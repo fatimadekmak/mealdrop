@@ -17,6 +17,15 @@ use Illuminate\Support\Facades\Route;
 
 // home page route
 Route::get('/', [HomeController::class,'index']);
+// restaurants page route
+Route::view('/viewrestaurants', 'restaurants');
+// cuisines page route
+Route::view('/browsecuisines', 'cuisines');
+// cart page route
+Route::view('/viewCart','cart');
+// contact page route
+Route::view('/contact','contact');
+
 // registration form of a restaurant route
 Route::get('/restaurant-form', [HomeController::class, 'restaurantForm']);
 // registration form of a del company route

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="index.html"><span
+        <a class="navbar-brand" href="/"><span
                 class="flaticon-pizza-1 mr-1"></span>Meal<br><small>Drop</small></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
             aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,35 +17,35 @@
 			  "><a href="/" class="nav-link">Home</a></li>
                 <li class="nav-item 
 			 	<?php
-   if (basename($_SERVER['PHP_SELF']) == 'restaurants.php') {
+   if (basename($_SERVER['PHP_SELF']) == 'viewrestaurants') {
        echo 'active';
    }
    ?> 
-			  "><a href="restaurants.php"
+			  "><a href="/viewrestaurants"
                         class="nav-link">Restaurants</a></li>
                 <li class="nav-item 
 			 	<?php
-   if (basename($_SERVER['PHP_SELF']) == 'cuisines.php') {
+   if (basename($_SERVER['PHP_SELF']) == 'browsecuisines') {
        echo 'active';
    }
    ?> 
-			  "><a href="cuisines.php"
+			  "><a href="/browsecuisines"
                         class="nav-link">Cuisines</a></li>
                 <li class="nav-item 
 			 	<?php
-   if (basename($_SERVER['PHP_SELF']) == 'contact.php') {
+   if (basename($_SERVER['PHP_SELF']) == 'contact') {
        echo 'active';
    }
    ?> 
-			  "><a href="contact.php" class="nav-link">Contact</a>
+			  "><a href="/contact" class="nav-link">Contact</a>
                 </li>
                 <li class="nav-item 
 			 	<?php
-   if (basename($_SERVER['PHP_SELF']) == 'cart.php') {
+   if (basename($_SERVER['PHP_SELF']) == 'viewCart') {
        echo 'active';
    }
    ?> 
-			  "><a href="cart.php" class="nav-link">Cart</a></li>
+			  "><a href="/viewCart" class="nav-link">Cart</a></li>
 
                 <li class="nav-item">
 
