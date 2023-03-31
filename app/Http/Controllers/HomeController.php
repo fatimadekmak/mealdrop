@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cuisine;
 use App\Models\DeliveryCompany;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -25,7 +26,15 @@ class HomeController extends Controller
         $restaurant->email = $request->inputEmail4;
         $restaurant->address = $request->inputAddress;
         $restaurant->phone = $request->phoneNum;
-        $restaurant->cuisine = $request->cuisine;
+        // we have to find the id of the cuisine and add it to the restaurant row
+        $cuisine = Cuisine::where('name',$request->cuisine)->first();
+        if(!$cuisine) {
+            $cuisine = new Cuisine();
+            $cuisine->name = $request->cuisine;
+            $cuisine->description = "";
+            $cuisine->save();
+        }
+        $restaurant->cuisine = $cuisine->id;
         $restaurant->opening_time = $request->opening_hours;
         $restaurant->save();
         return redirect('/')->with('alert', 'Your request has been successfully sent!');
