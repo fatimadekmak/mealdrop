@@ -23,12 +23,20 @@ class AdminController extends Controller
 
     public function deleterest($id) {
         $data = restaurant::find($id);
+        if($data->active==1) {
+            $account = User::where('email', $data->email);
+            $account->delete();
+        }
         $data->delete();
         return redirect()->back();
     }
 
     public function deletedel($id) {
         $data = DeliveryCompany::find($id);
+        if($data->active==1) {
+            $account = User::where('email', $data->email);
+            $account->delete();
+        }
         $data->delete();
         return redirect()->back();
     }

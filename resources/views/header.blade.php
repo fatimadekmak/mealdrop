@@ -14,7 +14,7 @@
        echo 'active';
    }
    ?> 
-			  "><a href="index.php" class="nav-link">Home</a></li>
+			  "><a href="/" class="nav-link">Home</a></li>
                 <li class="nav-item 
 			 	<?php
    if (basename($_SERVER['PHP_SELF']) == 'restaurants.php') {

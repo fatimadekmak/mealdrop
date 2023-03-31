@@ -42,7 +42,7 @@ Route::get('/deleteuser/{id}', [AdminController::class,'deleteuser']);
 // deleting a restaurant
 Route::get('/deleterest/{id}', [AdminController::class,'deleterest']);
 // deleting a del company
-Route::get('//deletedel/{id}', [AdminController::class,'deletedel']);
+Route::get('/deletedel/{id}', [AdminController::class,'deletedel']);
 
 
 
