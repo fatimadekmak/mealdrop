@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\RestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,6 +53,35 @@ Route::get('/deleteuser/{id}', [AdminController::class,'deleteuser']);
 Route::get('/deleterest/{id}', [AdminController::class,'deleterest']);
 // deleting a del company
 Route::get('/deletedel/{id}', [AdminController::class,'deletedel']);
+
+
+
+
+// in rest dashboard
+//Route::get('/orders', [AdminController::class,'restorders']);
+
+Route::get('/menu', [RestController::class,'menu']);
+
+Route::post('/addfood', [RestController::class,'addfood']);
+
+Route::get('/deleteitem/{id}', [RestController::class,'deleteitem']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

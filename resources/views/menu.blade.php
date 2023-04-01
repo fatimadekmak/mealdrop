@@ -48,20 +48,22 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="pricing-entry d-flex ftco-animate">
-                        <div class="img" style="background-image: url(images/pizza-1.jpg);"></div>
+                        @foreach($data as $data)
+                        <div class="img" style="background-image: url('/images/{{$data->image}}');"></div>
                         <div class="desc pl-3">
                             <div class="d-flex text align-items-center">
-                                <h3><span>menu Item</span></h3>
-                                <span class="price">$20.00</span>
+                                <h3><span>{{$data->Name}}</span></h3>
+                                <span class="price">{{$data->Price}}</span>
                             </div>
                             <div class="d-block">
-                                <p>A small river named Duden flows by their place and supplies</p>
+                                <p>{{$data->Description}}</p>
                                 <div class="mt-3"><a href="#" class="btn btn-white btn-outline-white">Add to cart</a></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            @endforeach
     </section>
 
     <!-- footer ----------------------------------------------------------------------------->
