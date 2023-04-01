@@ -47,6 +47,7 @@
             </div>
 
             <div class="row">
+
                 @foreach ($items as $item)
                     <div class="col-md-6">
                         <div class="pricing-entry d-flex ftco-animate">
@@ -65,6 +66,7 @@
                     </div>
                 @endforeach
             </div>
+            @endforeach
     </section>
 
     <!-- footer ----------------------------------------------------------------------------->

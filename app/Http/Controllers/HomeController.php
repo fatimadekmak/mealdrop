@@ -7,7 +7,9 @@ use App\Models\DeliveryCompany;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Restaurant;
+use App\Models\FoodItems;
 use Illuminate\Support\Facades\DB;
+
 
 class HomeController extends Controller
 {
@@ -84,6 +86,8 @@ class HomeController extends Controller
 
     public function redirects()
     {
+        $data=FoodItems::all();
+
         $usertype = Auth::user()->user_type;
 
         if ($usertype == '1')
@@ -92,7 +96,10 @@ class HomeController extends Controller
             return view('home');
         else if ($usertype == '2')  
             return view('restaurant.resthome');
-        else 
+        else if($usertype == '3')
             return view('delivery.delhome');
+        else{
+            return view('home', compact('data'));
+        }    
     }
 }
