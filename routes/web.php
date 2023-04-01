@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ItemController;
+use App\Models\Restaurant;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,13 +20,21 @@ use Illuminate\Support\Facades\Route;
 // home page route
 Route::get('/', [HomeController::class,'index']);
 // restaurants page route
-Route::view('/viewrestaurants', 'restaurants');
+Route::get('/viewrestaurants', [HomeController::class,'viewrestaurants']);
 // cuisines page route
-Route::view('/browsecuisines', 'cuisines');
+Route::get('/browsecuisines', [HomeController::class,'browsecuisines']);
 // cart page route
 Route::view('/viewCart','cart');
 // contact page route
 Route::view('/contact','contact');
+
+
+// viewing menu of a specific restaurant
+Route::get('/viewmenu/{id}', [ItemController::class,'viewmenu']);
+// Route::get('/viewmenu', [ItemController::class,'viewmenu']);
+// Route::view('/viewmenu', 'menu');
+
+
 
 // registration form of a restaurant route
 Route::get('/restaurant-form', [HomeController::class, 'restaurantForm']);

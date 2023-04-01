@@ -1,16 +1,25 @@
 <div class="container-wrap">
+
     <div class="row no-gutters d-flex">
-        <div class="col-lg-4 d-flex ftco-animate">
-            <div class="services-wrap d-flex">
-                <a href="#" class="img" style="background-image: url(images/pizza-1.jpg);"></a>
-                <div class="text p-4">
-                    <h3>Italian Pizza</h3>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia </p>
-                    <p class="price"><span>$2.90</span> <a href="#"
-                            class="ml-2 btn btn-white btn-outline-white">Order</a></p>
+        @foreach ($rests as $rest)
+            <div class="col-lg-4 d-flex ftco-animate">
+                <div class="services-wrap d-flex">
+                    <a href="#" class="img" style="background-image: url(restaurantImages/{{ $rest->image }});"></a>
+                    <div class="text p-4">
+                        <h3>{{ $rest->name }}</h3>
+                        <p><b>Cuisine:</b> {{ $rest->cuisine_name }} </p>
+                        <a href="{{ url('/viewmenu',$rest->id) }}" class="ml-2 btn btn-white btn-outline-white">View Menu</a></p>
+                        {{-- <a href="{{ url('/viewmenu') }}" class="ml-2 btn btn-white btn-outline-white">View Menu</a></p> --}}
+                    </div>
                 </div>
             </div>
-        </div>
+            <br>
+        @endforeach
+        
     </div>
 
-    <br><br><br>
+</div>
+
+
+
+<br><br><br>
