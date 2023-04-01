@@ -31,8 +31,9 @@ Route::view('/contact','contact');
 
 // viewing menu of a specific restaurant
 Route::get('/viewmenu/{id}', [ItemController::class,'viewmenu']);
-// Route::get('/viewmenu', [ItemController::class,'viewmenu']);
-// Route::view('/viewmenu', 'menu');
+// viewing restaurants and food items of a specific cuisine
+Route::get('/cuisine/{id}', [ItemController::class,'viewcuisine']);
+
 
 
 
