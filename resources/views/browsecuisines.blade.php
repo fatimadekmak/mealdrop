@@ -7,7 +7,7 @@
                     <div class="text p-4">
                         <h3>{{ $data->name }}</h3>
                         <p>{{ $data->description }}</p>
-                        <a href="cuisine.php" class="ml-2 btn btn-white btn-outline-white">View Cuisine</a></p>
+                        <a href="{{ url('/cuisine',$data->id) }}" class="ml-2 btn btn-white btn-outline-white">View Cuisine</a></p>
                     </div>
                 </div>
             </div>
