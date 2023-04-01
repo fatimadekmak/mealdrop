@@ -8,14 +8,39 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Restaurant;
 use App\Models\FoodItems;
+use Illuminate\Support\Facades\DB;
+
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $data = FoodItems::all();
-        return view('home', compact("data"));
+        return view('home',$this->returnrestaurants(),$this->returncuisines());
     }
+
+    public function viewrestaurants() {
+        return view('restaurants',$this->returnrestaurants());
+    }
+    
+    public function returnrestaurants() {
+        // $rests = restaurant::all();
+        // return compact('rests');
+        $rests = DB::table('restaurants')
+        ->join('cuisines', 'restaurants.cuisine', '=', 'cuisines.id')
+        ->select('restaurants.*', 'cuisines.name as cuisine_name')
+        ->get();
+    return compact('rests');
+    }
+
+    public function browsecuisines() {
+        return view('cuisines',$this->returncuisines());
+    }
+
+    public function returncuisines() {
+        $cuis = Cuisine::all();
+        return compact("cuis");
+    }
+
 
     
     public function restaurantForm() {
@@ -57,6 +82,7 @@ class HomeController extends Controller
     public function deliveryForm() {
         return view('delivery.registerForm');
     }
+
 
     public function redirects()
     {
