@@ -50,8 +50,6 @@
                         <td>{{ $data->Price }}</td>
                         <td>{{ $data->Description }}</td>
                         
-                        <!-- <td><a href="{{ url('/additem', $menu->id) }}">Add Item</a></td>    
-                       -->
                         <td><a href="{{ url('/deleteitem', $data->id) }}">Delete Item</a></td> 
                     </tr> 
                 @endforeach

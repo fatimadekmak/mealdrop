@@ -42,7 +42,7 @@
         <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section ftco-animate text-center">
-                    <h2 class="mb-4">Browse your favorite cuisine restaurants</h2>
+                    <h2 class="mb-4">Browse your favorite {{ $cuis }} restaurants</h2>
                 </div>
             </div>
         </div>
@@ -74,7 +74,7 @@
         <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section ftco-animate text-center">
-                    <h2 class="mb-4">Order your favorite cuisine food items</h2>
+                    <h2 class="mb-4">Order your favorite {{ $cuis }} food items</h2>
                 </div>
             </div>
 
