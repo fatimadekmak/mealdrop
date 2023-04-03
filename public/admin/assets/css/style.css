@@ -20835,3 +20835,126 @@ div.tagsinput {
   flex-grow: 1; }
 
 /*# sourceMappingURL=maps/style.css.map */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*my edits*/
+
+form {
+  margin:10px 0;
+}
+
+label {
+  color: #F5F5DC;
+  float: left;
+  font-size: 16px;
+  line-height: 18px;
+  padding-top: 6px;
+  text-align: right;
+  width: 130px;
+}
+
+label, input, select, textarea {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: normal;
+}
+
+input, textarea, select {
+  -moz-border-radius: 3px 3px 3px 3px;
+  border: 1px solid #CCCCCC;
+  color: #808080;
+  display: inline-block;
+  font-size: 13px;
+  height: 20px;
+  line-height: 18px;
+  padding: 4px;
+  width: 210px;
+}
+
+select {
+  height: 27px;
+  line-height: 27px;
+}
+
+form .input {
+  margin-left: 150px;
+}
+
+form .line {
+  margin-bottom: 18px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*submit*/
+/* 
+input2{
+  -moz-border-radius: 3px 3px 3px 3px;
+  border: 1px solid #CCCCCC;
+  color: #FFD580;
+  display: inline-block;
+  font-size: 16px;
+  height: 20px;
+  line-height: 20px;
+  padding: 5px;
+  width: 500px;
+
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: normal;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+input[type=submit] {
+  padding: 5px 15px;
+  background: #99e0b2;
+  border: 0 none;
+  cursor: pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+
+}
+
+
+
+
+
+
+
+

@@ -93,18 +93,15 @@ Route::post('/addfood', [RestController::class,'addfood']);
 Route::get('/deleteitem/{id}', [RestController::class,'deleteitem']);
 
 
+//order
+//Route::post('/create-order', [App\Http\Controllers\RestController::class, 'createOrder'])->name('restaurant.createOrder');
+
+//orders
+Route::get('/orders', [RestController::class,'orders']);
 
 
 
-
-
-
-
-
-
-
-
-
+//search
 
 
 
