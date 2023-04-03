@@ -63,7 +63,8 @@
                         <h1 class="mb-4">We cooked your desired Meals</h1>
                         <p class="mb-4 mb-md-5">Order meals from your favorite restaurants by MealDrop.</p>
                         <p><a href="/browsecuisines" class="btn btn-primary p-3 px-xl-4 py-xl-3">Browse Cuisines</a> <a
-                                href="/viewrestaurants" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">Browse
+                                href="/viewrestaurants"
+                                class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">Browse
                                 Restaurants</a></p>
                     </div>
                 </div>
@@ -80,8 +81,9 @@
                         <h1 class="mb-4">Italian Cuizine</h1>
                         <p class="mb-4 mb-md-5">A small river named Duden flows by their place and supplies it with the
                             necessary regelialia.</p>
-                        <p><a href="/browsecuisines" class="btn btn-primary p-3 px-xl-4 py-xl-3">Browse Italian Cuisine</a> <a
-                                href="/browsecuisines" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">Browse Other
+                        <p><a href="/browsecuisines" class="btn btn-primary p-3 px-xl-4 py-xl-3">Browse Italian
+                                Cuisine</a> <a href="/browsecuisines"
+                                class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">Browse Other
                                 Cuisines</a></p>
                     </div>
                     <div class="col-md-6 ftco-animate">
@@ -246,11 +248,13 @@
         </svg></div>
 
     <script>
-        var msg = '{{ Session::get('alert') }}';
-        var exist = '{{ Session::has('alert') }}';
-        if (exist) {
-            alert(msg);
-        }
+        setTimeout(function() {
+            var msg = '{{ Session::get('alert') }}';
+            var exist = '{{ Session::has('alert') }}';
+            if (exist) {
+                alert(msg);
+            }
+        }, 500);
     </script>
 
 

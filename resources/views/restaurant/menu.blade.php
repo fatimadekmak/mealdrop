@@ -69,10 +69,11 @@
                         <td>{{ $fooditem->Name }}</td>
                         <td>{{ $fooditem->Price }}</td>
                         <td>{{ $fooditem->Description }}</td>
-                        
+
                         <td><a href="{{ url('/addfood', $fooditem->id) }}">Add Item</a></td>    
                        
                         <td><a href="{{ url('/deleteitem', $fooditem->id) }}">Delete Item</a></td> 
+
                     </tr> 
                 @endforeach
                     

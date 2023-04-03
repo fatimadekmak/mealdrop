@@ -21,7 +21,7 @@
        echo 'active';
    }
    ?> 
-			  "><a href="/viewrestaurants"
+			  "><a href="{{ url('/viewrestaurants') }}"
                         class="nav-link">Restaurants</a></li>
                 <li class="nav-item 
 			 	<?php
@@ -29,7 +29,7 @@
        echo 'active';
    }
    ?> 
-			  "><a href="/browsecuisines"
+			  "><a href="{{ url('/browsecuisines') }}"
                         class="nav-link">Cuisines</a></li>
                 <li class="nav-item 
 			 	<?php
@@ -37,7 +37,7 @@
        echo 'active';
    }
    ?> 
-			  "><a href="/contact" class="nav-link">Contact</a>
+			  "><a href="{{ url('/contact') }}" class="nav-link">Contact</a>
                 </li>
                 <li class="nav-item 
 			 	<?php
@@ -45,7 +45,13 @@
        echo 'active';
    }
    ?> 
-			  "><a href="/viewCart" class="nav-link">Cart</a></li>
+			  ">@auth
+              <a href="{{ url('/viewCart',Auth::user()->id) }}" class="nav-link">Cart</a>
+              @endauth
+              @guest
+              <a href="{{ url('/login') }}" class="nav-link">Cart</a>
+              @endguest
+            </li>
 
                 <li class="nav-item">
 

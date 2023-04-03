@@ -46,26 +46,35 @@
             </div>
 
             <div class="row">
-                <div class="col-md-6">
-                    <div class="pricing-entry d-flex ftco-animate">
-                        @foreach($data as $data)
-                        <div class="img" style="background-image: url('/images/{{$data->image}}');"></div>
-                        <div class="desc pl-3">
-                            <div class="d-flex text align-items-center">
-                                <h3><span>{{$data->Name}}</span></h3>
-                                <span class="price">{{$data->Price}}</span>
+                @foreach ($items as $item)
+                    <div class="col-md-6">
+                        <form action="{{ url('/addcart', $item->id) }}" method="post">
+                            @csrf
+                            <div class="pricing-entry d-flex ftco-animate">
+                                <div class="img" style="background-image: url({{ asset('images/pizza-1.jpg') }});">
+                                </div>
+                                <div class="desc pl-3">
+                                    <div class="d-flex text align-items-center">
+                                        <h3><span>{{ $item->name }}</span></h3>
+                                        <span class="price">{{ $item->price }}</span>
+                                    </div>
+                                    <div class="d-block">
+                                        <p>{{ $item->description }}</p>
+                                        <div class="mt-3">
+                                            <input type="number" name="quantity" min='1' value="1"
+                                                style="width: 40px">
+                                            <input name="addToCart" type="submit"
+                                                class="btn btn-white btn-outline-white" value="Add to cart">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="d-block">
-                                <p>{{$data->Description}}</p>
-                                <div class="mt-3"><a href="#" class="btn btn-white btn-outline-white">Add to cart</a></div>
-                            </div>
-                        </div>
+                        </form>
 
                     </div>
                 </div>
                 @endforeach
-            </div>
-            
+
     </section>
 
     <!-- footer ----------------------------------------------------------------------------->
@@ -78,6 +87,15 @@
             <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" />
         </svg></div>
 
+    <script>
+        setTimeout(function() {
+            var msg = '{{ Session::get('alert') }}';
+            var exist = '{{ Session::has('alert') }}';
+            if (exist) {
+                alert(msg);
+            }
+        }, 500);
+    </script>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-migrate-3.0.1.min.js"></script>
@@ -96,6 +114,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="js/google-map.js"></script>
     <script src="js/main.js"></script>
+
 
 </body>
 

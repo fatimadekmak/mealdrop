@@ -4,6 +4,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RestController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\CartController;
+
 use App\Models\Restaurant;
 use Illuminate\Support\Facades\Route;
 
@@ -24,17 +26,29 @@ Route::get('/', [HomeController::class,'index']);
 Route::get('/viewrestaurants', [HomeController::class,'viewrestaurants']);
 // cuisines page route
 Route::get('/browsecuisines', [HomeController::class,'browsecuisines']);
-// cart page route
-Route::view('/viewCart','cart');
 // contact page route
 Route::view('/contact','contact');
+
+
+
+// cart page route
+Route::get('viewCart/{id}', [CartController::class,'viewcart']);
+// deleting a record in cart
+Route::get('/cartdelete/{id}', [CartController::class,'cartdelete']);
+// updating a record in cart
+Route::post('/cartupdate/{id}', [CartController::class,'cartupdate']);
+// checking out route
+Route::view('/shipping', 'deliveryoptions');
+//processing order
+Route::post('/order',[CartController::class,'processorder']);
 
 
 // viewing menu of a specific restaurant
 Route::get('/viewmenu/{id}', [ItemController::class,'viewmenu']);
 // viewing restaurants and food items of a specific cuisine
 Route::get('/cuisine/{id}', [ItemController::class,'viewcuisine']);
-
+// adding a food item to cart
+Route::post('/addcart/{id}', [ItemController::class,'addToCart']);
 
 
 
@@ -48,6 +62,7 @@ Route::post('/processRequest', [HomeController::class, 'processRequest']);
 Route::post('/processDelivRequest', [HomeController::class, 'processDelivRequest']);
 // after signing up route
 Route::get('/redirects', [HomeController::class,'redirects']);
+
 
 // in admin dashboard
 // users link in nav route
