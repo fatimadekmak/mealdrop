@@ -16,25 +16,44 @@
         <div style="position: relative; top: 60px; right: -150px">
 
             <form name="additem" action="{{url('addfood')}}" method="post" enctype = "multipart/form-data">
-                @csrf
-                <div>
-                    <label>Name</label>
-                    <input type="text" name="Name" required>
+                <h2>Add Item</h2>
+            @csrf    
+            <!--<div class="settings"> -->
+            <div class="line">
+                    <label for="input">Name</label>
+                    <div class="input">
+                    <input type="text" name="name" required>
                 </div>
-                <div>
-                    <label>Price</label>
-                    <input type="number" name="Price" required>
-                </div>
-                <div>
-                    <label>Description</label>
-                    <input type="text" name="Description" required>
-                </div>
-                <div>
-                    <input type="submit" name="save" value="save">
                 </div>
 
+                <div class="line">
+                    <label for="input">Price</label>
+                    <div class="input">
+                    <input type="number" name="price" required>
+                </div>
+                </div>
+
+                <div class="line">
+                    <label for="input">Description</label>
+                    <div class="input">
+                    <input type="text" name="description" required>
+                </div>
+                </div>
+
+                <div class="line">
+                    <label for="input">Cuisine</label>
+                    <div class="input">
+                    <input type="text" name="cuisine" required>
+                </div>
+                </div>
+             <!-- class="input2" -->
+                
+                    <input type="submit" name="save" value="save">
+
+                
             </form>
             <div>
+                <h2>Food Items At My Restaurant</h2>
             <table bgcolor="grey" border="3px">
 
                 <tr>
@@ -44,19 +63,19 @@
                     <th style="padding: 30px">add item</th>
                     <th style="padding: 30px">action</th>
 
-                    @foreach ($data as $data)
+                </tr>
+                    @foreach ($food_items as $fooditem)
                     <tr align="center">
-                        <td>{{ $data->Name }}</td>
-                        <td>{{ $data->Price }}</td>
-                        <td>{{ $data->Description }}</td>
+                        <td>{{ $fooditem->Name }}</td>
+                        <td>{{ $fooditem->Price }}</td>
+                        <td>{{ $fooditem->Description }}</td>
                         
-                        <!-- <td><a href="{{ url('/additem', $menu->id) }}">Add Item</a></td>    
-                       -->
-                        <td><a href="{{ url('/deleteitem', $data->id) }}">Delete Item</a></td> 
+                        <td><a href="{{ url('/addfood', $fooditem->id) }}">Add Item</a></td>    
+                       
+                        <td><a href="{{ url('/deleteitem', $fooditem->id) }}">Delete Item</a></td> 
                     </tr> 
                 @endforeach
                     
-                </tr>
             </table>
 
 </div>

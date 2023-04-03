@@ -45,6 +45,8 @@
             <div class="container">
                 <div class="row slider-text justify-content-center" data-scrollax-parent="true">
                     <div class="container search_bar mt-5">
+                    <!-- livewire('restaurant-search') -->
+
                         <form class="search_form" action="">
                             <input class="search_input" type="text" placeholder="what are you looking for?">
                             <select name="filter" class="search_filter">
