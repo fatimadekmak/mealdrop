@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cart;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -28,5 +29,9 @@ class CartController extends Controller
         $item->quantity = $request->quantity;
         $item->update();
         return redirect()->back();
+    }
+
+    public function processorder() {
+        
     }
 }

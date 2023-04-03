@@ -15,8 +15,13 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->double('total_price');
-            $table->string('status');
             $table->unsignedBigInteger('del_id');
+            $table->string('status')->default('pending');
+            $table->string('fname');
+            $table->string('lname');
+            $table->string('shipping_addr');
+            $table->string('phone');
+            $table->string('note');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('del_id')->references('id')->on('delivery_companies')->onDelete('cascade');
             $table->timestamps();

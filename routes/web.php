@@ -37,6 +37,10 @@ Route::get('viewCart/{id}', [CartController::class,'viewcart']);
 Route::get('/cartdelete/{id}', [CartController::class,'cartdelete']);
 // updating a record in cart
 Route::post('/cartupdate/{id}', [CartController::class,'cartupdate']);
+// checking out route
+Route::view('/shipping', 'deliveryoptions');
+//processing order
+Route::post('/order',[CartController::class,'processorder']);
 
 
 // viewing menu of a specific restaurant
@@ -45,7 +49,6 @@ Route::get('/viewmenu/{id}', [ItemController::class,'viewmenu']);
 Route::get('/cuisine/{id}', [ItemController::class,'viewcuisine']);
 // adding a food item to cart
 Route::post('/addcart/{id}', [ItemController::class,'addToCart']);
-
 
 
 

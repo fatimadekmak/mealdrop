@@ -163,7 +163,7 @@
                 </div>
                 <div class="float-right">
                     <a href="/" class="btn btn-lg btn-light text-dark">Back to shopping</a>
-                    <a href="{{ url('/checkout',$item->user_id) }}" class="btn btn-lg btn-dark text-light">Checkout</a>
+                    <a href="{{ url('/shipping') }}" class="btn btn-lg btn-dark text-light">Checkout</a>
                 </div>
             </div>
         </div>
@@ -178,7 +178,9 @@
                 stroke-miterlimit="10" stroke="#F96D00" />
         </svg></div>
 
-
+    {{-- <!-- FOOTER --------------------------------------------------------------------------> --}}
+    @include('footer')
+    
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript"></script>
