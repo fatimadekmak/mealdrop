@@ -42,7 +42,7 @@
         <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section ftco-animate text-center">
-                    <h2 class="mb-4">Browse your favorite cuisine restaurants</h2>
+                    <h2 class="mb-4">Browse your favorite {{ $cuis }} restaurants</h2>
                 </div>
             </div>
         </div>
@@ -74,7 +74,7 @@
         <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section ftco-animate text-center">
-                    <h2 class="mb-4">Order your favorite cuisine food items</h2>
+                    <h2 class="mb-4">Order your favorite {{ $cuis }} food items</h2>
                 </div>
             </div>
 
@@ -82,22 +82,28 @@
             <div class="row">
                 @foreach ($items as $item)
                     <div class="col-md-6">
-                        <div class="pricing-entry d-flex ftco-animate">
-                            <div class="img" style="background-image: url({{ asset('images/pizza-1.jpg') }});">
-                            </div>
-                            <div class="desc pl-3">
-                                <div class="d-flex text align-items-center">
-                                    <h3><span>{{ $item->name }}</span></h3>
-                                    <span class="price">{{ $item->price }}</span>
+                        <form action="{{ url('/addcart', $item->id) }}" method="post">
+                            @csrf
+                            <div class="pricing-entry d-flex ftco-animate">
+                                <div class="img" style="background-image: url({{ asset('images/pizza-1.jpg') }});">
                                 </div>
-                                <div class="d-block">
-                                    <p>{{ $item->description }}</p>
-									<p><a href="{{ url('/viewmenu',$item->rest_id) }}">Restaurant: {{ $item->rest_name }}</a></p>
-                                    <div class="mt-3"><a href="#" class="btn btn-white btn-outline-white">Add to
-                                            cart</a></div>
+                                <div class="desc pl-3">
+                                    <div class="d-flex text align-items-center">
+                                        <h3><span>{{ $item->name }}</span></h3>
+                                        <span class="price">{{ $item->price }}</span>
+                                    </div>
+                                    <div class="d-block">
+                                        <p>{{ $item->description }}</p>
+                                        <p><a href="{{ url('/viewmenu', $item->rest_id) }}">Restaurant:
+                                                {{ $item->rest_name }}</a></p>
+                                        <input type="number" name="quantity" min='1' value="1"
+                                            style="width: 40px">
+                                        <input name="addToCart" type="submit" class="btn btn-white btn-outline-white"
+                                            value="Add to cart">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 @endforeach
             </div>
@@ -116,7 +122,16 @@
             <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4"
                 stroke-miterlimit="10" stroke="#F96D00" />
         </svg></div>
-
+        
+    <script>
+        setTimeout(function() {
+            var msg = '{{ Session::get('alert') }}';
+            var exist = '{{ Session::has('alert') }}';
+            if (exist) {
+                alert(msg);
+            }
+        }, 500);
+    </script>
 
     <script src="{{ asset('js/jquery.min.js') }}"></script>{{ asset('') }}
     <script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}"></script>

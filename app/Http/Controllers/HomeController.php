@@ -40,8 +40,6 @@ class HomeController extends Controller
         $cuis = Cuisine::all();
         return compact("cuis");
     }
-
-
     
     public function restaurantForm() {
         return view('restaurant.registerForm');
@@ -92,8 +90,8 @@ class HomeController extends Controller
 
         if ($usertype == '1')
             return view('admin.adminhome');
-        else if ($usertype == '0')
-            return view('home');
+        else if ($usertype == '0') 
+            return redirect('/');
         else if ($usertype == '2')  
             return view('restaurant.resthome');
         else if($usertype == '3')

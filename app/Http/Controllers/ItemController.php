@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Cuisine;
 use App\Models\FoodItems;
 use App\Models\Restaurant;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {
@@ -25,5 +27,22 @@ class ItemController extends Controller
         ->where('food_items.cuisine',$id)
         ->get();
         return view('cuisine',compact('cuis','items','rests'));
+    }
+
+    public function addToCart(Request $request, $id) {
+
+        if(Auth::id()) {
+            $user_id = Auth::id();
+            $cartItem = new Cart();
+            $cartItem->user_id = $user_id;
+            $cartItem->food_id = $id;
+            $cartItem->quantity = $request->quantity;
+            $cartItem->save();
+            return redirect()->back()->with('alert', 'Added to your cart!');
+        }
+        else {
+            return redirect('/login');
+        }
+
     }
 }
