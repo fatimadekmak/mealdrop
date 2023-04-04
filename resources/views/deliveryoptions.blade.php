@@ -70,7 +70,7 @@
             </div>
             <div class="col-md-5 m-2">
                 <label for="address" class="form-label">Address</label><br>
-                <input type="email" class="form-control-box" name="address" placeholder="1234 Main St">
+                <input type="text" class="form-control-box" name="address" placeholder="1234 Main St">
             </div>
             <div class="col-md-5 m-2">
                 <label for="phoneNum" class="form-label">Phone Number</label><br>

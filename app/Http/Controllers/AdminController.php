@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DeliveryCompany;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Restaurant;
 
@@ -31,6 +31,13 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
+    public function activaterest($id) {
+        $rest = Restaurant::find($id);
+        $rest->active = 1;
+        $rest->update();
+        return redirect('requests');
+    }
+
     public function deletedel($id) {
         $data = DeliveryCompany::find($id);
         if($data->active==1) {
@@ -41,8 +48,18 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
+    public function activatedel($id) {
+        $del = DeliveryCompany::find($id);
+        $del->active = 1;
+        $del->update();
+        return redirect('requests');
+    }
+
     public function restaurant() {
-        $restaurants = restaurant::all();
+        $restaurants = DB::table('restaurants')
+            ->join('cuisines','restaurants.cuisine','=','cuisines.id')
+            ->select('restaurants.*','cuisines.name as cuis_name')
+            ->get();
         return view('admin.restaurants', compact("restaurants"));
     }
 
@@ -52,7 +69,10 @@ class AdminController extends Controller
     }
     
     public function requests() {
-        $rests = restaurant::all();
+        $rests = DB::table('restaurants')
+        ->join('cuisines','restaurants.cuisine','=','cuisines.id')
+        ->select('restaurants.*','cuisines.name as cuis_name')
+        ->get();
         $comps = DeliveryCompany::all();
         return view('admin.requests', compact("rests"),compact("comps"));
     }

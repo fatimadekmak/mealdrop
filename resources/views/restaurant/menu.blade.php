@@ -1,89 +1,86 @@
-
 <x-app-layout>
-    
+
 </x-app-layout>
 
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     @include('restaurant.restcss')
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="container-scroller">
         @include('restaurant.restnavbar')
-        
+
         <div style="position: relative; top: 60px; right: -150px">
 
-            <form name="additem" action="{{url('addfood')}}" method="post" enctype = "multipart/form-data">
+            <form name="additem" action="{{ url('addfood') }}" method="post" enctype="multipart/form-data">
                 <h2>Add Item</h2>
-            @csrf    
-            <!--<div class="settings"> -->
-            <div class="line">
+                @csrf
+                <!--<div class="settings"> -->
+                <div class="line">
                     <label for="input">Name</label>
                     <div class="input">
-                    <input type="text" name="name" required>
-                </div>
+                        <input type="text" name="name" required>
+                    </div>
                 </div>
 
                 <div class="line">
                     <label for="input">Price</label>
                     <div class="input">
-                    <input type="number" name="price" required>
-                </div>
+                        <input type="number" name="price" required>
+                    </div>
                 </div>
 
                 <div class="line">
                     <label for="input">Description</label>
                     <div class="input">
-                    <input type="text" name="description" required>
-                </div>
+                        <input type="text" name="description" required>
+                    </div>
                 </div>
 
                 <div class="line">
                     <label for="input">Cuisine</label>
                     <div class="input">
-                    <input type="text" name="cuisine" required>
+                        <input type="text" name="cuisine" required>
+                    </div>
                 </div>
-                </div>
-             <!-- class="input2" -->
-                
-                    <input type="submit" name="save" value="save">
+                <!-- class="input2" -->
 
-                
+                <input type="submit" name="save" value="save">
+
+
             </form>
+            
+            
             <div>
                 <h2>Food Items At My Restaurant</h2>
-            <table bgcolor="grey" border="3px">
+                <table bgcolor="grey" border="3px">
 
-                <tr>
-                    <th style="padding: 30px">name</th>
-                    <th style="padding: 30px">price</th>
-                    <th style="padding: 30px">description</th>
-                    <th style="padding: 30px">add item</th>
-                    <th style="padding: 30px">action</th>
+                    <tr>
+                        <th style="padding: 30px">name</th>
+                        <th style="padding: 30px">price</th>
+                        <th style="padding: 30px">description</th>
+                        <th style="padding: 30px">action</th>
 
-                </tr>
+                    </tr>
                     @foreach ($food_items as $fooditem)
-                    <tr align="center">
-                        <td>{{ $fooditem->Name }}</td>
-                        <td>{{ $fooditem->Price }}</td>
-                        <td>{{ $fooditem->Description }}</td>
+                        <tr align="center">
+                            <td style="width: 150px">{{ $fooditem->name }}</td>
+                            <td style="width: 80px">${{ $fooditem->price }}</td>
+                            <td style="width: 300px">{{ $fooditem->description }}</td>
+                            <td style="width: 80px"><a href="{{ url('/deleteitem', $fooditem->id) }}">Delete Item</a></td>
 
-                        <td><a href="{{ url('/addfood', $fooditem->id) }}">Add Item</a></td>    
-                       
-                        <td><a href="{{ url('/deleteitem', $fooditem->id) }}">Delete Item</a></td> 
+                        </tr>
+                    @endforeach
 
-                    </tr> 
-                @endforeach
-                    
-            </table>
+                </table>
 
-</div>
-
-
-</div>
-@include('restaurant.restscript')
+            </div>
+        </div>
+        @include('restaurant.restscript')
 </body>
-</html>
 
+</html>
