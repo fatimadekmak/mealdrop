@@ -39,6 +39,7 @@ Route::get('/cartdelete/{id}', [CartController::class,'cartdelete']);
 Route::post('/cartupdate/{id}', [CartController::class,'cartupdate']);
 // checking out route
 Route::view('/shipping', 'deliveryoptions');
+// Route::post('/shipping',[CartController::class,'processorder']);
 //processing order
 Route::post('/order',[CartController::class,'processorder']);
 
@@ -75,6 +76,10 @@ Route::get('/delivery', [AdminController::class,'delivery']);
 Route::get('/requests', [AdminController::class,'requests']);
 // deleting a user
 Route::get('/deleteuser/{id}', [AdminController::class,'deleteuser']);
+// mark restaurant as active before creating its account
+Route::get('/activaterest/{id}', [AdminController::class,'activaterest']);
+// mark delivery company as active before creating its account
+Route::get('/activatedel/{id}', [AdminController::class,'activatedel']);
 // deleting a restaurant
 Route::get('/deleterest/{id}', [AdminController::class,'deleterest']);
 // deleting a del company

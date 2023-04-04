@@ -23,10 +23,9 @@ class HomeController extends Controller
     }
     
     public function returnrestaurants() {
-        // $rests = restaurant::all();
-        // return compact('rests');
         $rests = DB::table('restaurants')
         ->join('cuisines', 'restaurants.cuisine', '=', 'cuisines.id')
+        ->where('restaurants.active','1')
         ->select('restaurants.*', 'cuisines.name as cuisine_name')
         ->get();
     return compact('rests');
@@ -100,56 +99,5 @@ class HomeController extends Controller
             return view('home', compact('data'));
         }    
     }
-
-
-
-    // public function login(Request $request)
-    // {
-    //     // Authenticate user
-    
-    //     $restaurant = Restaurant::where('user_id', $user->id)->first();
-    //     if ($restaurant) {
-    //         session(['restaurant_id' => $restaurant->id]);
-    //     }
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // public function index(Request $request)
-    // {
-    //     $query = $request->input('query');
-    //     $category = $request->input('category');
-
-    //     $restaurants = Restaurant::where('name', 'LIKE', "%$query%")
-    //         ->when($category, function ($query, $category) {
-    //             return $query->where('category', $category);
-    //         })
-    //         ->get();
-
-    //     $fooditems = FoodItem::where('name', 'LIKE', "%$query%")
-    //         ->when($category, function ($query, $category) {
-    //             return $query->whereHas('restaurant', function ($query) use ($category) {
-    //                 return $query->where('category', $category);
-    //             });
-    //         })
-    //         ->get();
-
-    //     return view('home', compact('restaurants', 'food_items'));
-    // }
-
 
 }

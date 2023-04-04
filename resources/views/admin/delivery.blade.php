@@ -47,7 +47,9 @@
                 @endforeach
 
             </table>
-
+            <br>
+            <b>Caution:</b> deleting an active delivery company will also delete the company's account (login credentials).
+        
         </div>
 
     </div>

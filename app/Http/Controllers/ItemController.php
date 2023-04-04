@@ -20,7 +20,8 @@ class ItemController extends Controller
 
     public function viewcuisine($id){
         $cuis = Cuisine::find($id)->name;
-        $rests = Restaurant::where('cuisine',$id)->get();
+        $rests = Restaurant::where('cuisine',$id)
+            ->where('restaurants.active','1')->get();
         $items = DB::table('food_items')
         ->join('restaurants', 'restaurants.id', '=', 'food_items.rest_id')
         ->select('food_items.*', 'restaurants.name as rest_name')

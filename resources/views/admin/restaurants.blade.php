@@ -37,7 +37,7 @@
                             <td>{{ $req->address }}</td>
                             <td>{{ $req->phone }}</td>
                             <td>{{ $req->opening_time }}</td>
-                            <td>{{ $req->cuisine }}</td>
+                            <td>{{ $req->cuis_name }}</td>
                             <td>
                                 <a href="{{ url('/deleterest', $req->id) }}">Delete</a>
                             </td>
@@ -46,7 +46,8 @@
                 @endforeach
 
             </table>
-
+            <br>
+            <b>Caution:</b> deleting an active restaurant will also delete the restaurant's account (login credentials).
         </div>
 
     </div>
