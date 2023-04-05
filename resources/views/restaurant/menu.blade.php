@@ -53,9 +53,9 @@
 
 
             </form>
-            
-            
-            <div>
+
+
+            <div class="sect">
                 <h2>Food Items At My Restaurant</h2>
                 <table bgcolor="grey" border="3px">
 
@@ -71,7 +71,8 @@
                             <td style="width: 150px">{{ $fooditem->name }}</td>
                             <td style="width: 80px">${{ $fooditem->price }}</td>
                             <td style="width: 300px">{{ $fooditem->description }}</td>
-                            <td style="width: 80px"><a href="{{ url('/deleteitem', $fooditem->id) }}">Delete Item</a></td>
+                            <td style="width: 80px"><a href="{{ url('/deleteitem', $fooditem->id) }}">Delete Item</a>
+                            </td>
 
                         </tr>
                     @endforeach
@@ -80,7 +81,8 @@
 
             </div>
         </div>
-        @include('restaurant.restscript')
+    </div>
+    @include('restaurant.restscript')
 </body>
 
 </html>

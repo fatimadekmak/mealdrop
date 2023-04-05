@@ -2,57 +2,69 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Order;
 use App\Models\Cuisine;
-use App\Models\DeliveryCompany;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
-use App\Models\Restaurant;
 use App\Models\FoodItems;
+use App\Models\Restaurant;
+use App\Models\OrderedItem;
+use Illuminate\Http\Request;
+use App\Models\DeliveryCompany;
+use App\Models\RestaurantOrder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Notifications\NewOrderNotification;
+use Illuminate\Support\Facades\Notification;
 
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('home',$this->returnrestaurants(),$this->returncuisines());
+        return view('home', $this->returnrestaurants(), $this->returncuisines());
     }
 
-    public function viewrestaurants() {
-        return view('restaurants',$this->returnrestaurants());
+    public function viewrestaurants()
+    {
+        return view('restaurants', $this->returnrestaurants());
     }
-    
-    public function returnrestaurants() {
+
+    public function returnrestaurants()
+    {
         $rests = DB::table('restaurants')
-        ->join('cuisines', 'restaurants.cuisine', '=', 'cuisines.id')
-        ->where('restaurants.active','1')
-        ->select('restaurants.*', 'cuisines.name as cuisine_name')
-        ->get();
-    return compact('rests');
+            ->join('cuisines', 'restaurants.cuisine', '=', 'cuisines.id')
+            ->where('restaurants.active', '1')
+            ->select('restaurants.*', 'cuisines.name as cuisine_name')
+            ->get();
+        return compact('rests');
     }
 
-    public function browsecuisines() {
-        return view('cuisines',$this->returncuisines());
+    public function browsecuisines()
+    {
+        return view('cuisines', $this->returncuisines());
     }
 
-    public function returncuisines() {
+    public function returncuisines()
+    {
         $cuis = Cuisine::all();
         return compact("cuis");
     }
-    
-    public function restaurantForm() {
+
+    public function restaurantForm()
+    {
         return view('restaurant.registerForm');
     }
 
-    public function processRequest(Request $request) {
+    public function processRequest(Request $request)
+    {
         $restaurant = new Restaurant();
         $restaurant->name = $request->restName;
         $restaurant->email = $request->inputEmail4;
         $restaurant->address = $request->inputAddress;
         $restaurant->phone = $request->phoneNum;
         // we have to find the id of the cuisine and add it to the restaurant row
-        $cuisine = Cuisine::where('name',$request->cuisine)->first();
-        if(!$cuisine) {
+        $cuisine = Cuisine::where('name', $request->cuisine)->first();
+        if (!$cuisine) {
             $cuisine = new Cuisine();
             $cuisine->name = $request->cuisine;
             $cuisine->description = "";
@@ -64,7 +76,8 @@ class HomeController extends Controller
         return redirect('/')->with('alert', 'Your request has been successfully sent!');
     }
 
-    public function processDelivRequest(Request $request) {
+    public function processDelivRequest(Request $request)
+    {
         $company = new DeliveryCompany();
         $company->name = $request->delivName;
         $company->email = $request->inputEmail4;
@@ -76,28 +89,61 @@ class HomeController extends Controller
         return redirect('/')->with('alert', 'Your request has been successfully sent!');
     }
 
-    public function deliveryForm() {
+    public function deliveryForm()
+    {
         return view('delivery.registerForm');
     }
 
+    public function orderhistory($id)
+    {
+        $orders = Order::where('user_id', $id)->get();
+        $order_items = array();
+        foreach ($orders as $order) {
+            $order_items[$order->id] = OrderedItem::where('order_id', $order->id)
+                ->join('food_items', 'food_items.id', '=', 'ordered_items.food_item_id')
+                ->select('ordered_items.*', 'food_items.name as food_name')
+                ->get();
+        }
+        return view('orderhistory', compact('orders', 'order_items'));
+    }
+
+    public function reorder($id) {
+        $order = Order::find($id);
+        $order->status = 'pending';
+        
+        $rests = RestaurantOrder::where('order_id',$id)->get();
+        foreach($rests as $rest) {
+                $resto = Restaurant::find($rest->rest_id);
+                $rest_user = User::where('email',$resto->email)->first();
+                Notification::send($rest_user, new NewOrderNotification($order->id, $order->fname.' '.$order->lname));
+        }
+        $order->del_id = DeliveryCompany::where('available',1)->first()->id;
+        $order->save();
+        $del = DB::table('delivery_companies')
+        ->join('users','users.email','=','delivery_companies.email')
+        ->where('delivery_companies.id',$order->del_id)
+        ->first();
+
+        Notification::send(User::find($del->id), new NewOrderNotification($id,  $order->fname.' '.$order->lname));
+        return redirect()->back();
+    }
 
     public function redirects()
     {
-        $data=FoodItems::all();
+        $data = FoodItems::all();
 
         $usertype = Auth::user()->user_type;
 
         if ($usertype == '1')
             return view('admin.adminhome');
-        else if ($usertype == '0') 
+        else if ($usertype == '0')
             return redirect('/');
-        else if ($usertype == '2')  
+        else if ($usertype == '2')
             return view('restaurant.resthome');
-        else if($usertype == '3')
+        else if ($usertype == '3')
             return view('delivery.delhome');
-        else{
+        else {
             return view('home', compact('data'));
-        }    
+        }
     }
-
 }

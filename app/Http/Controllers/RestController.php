@@ -10,6 +10,8 @@ use App\Models\FoodItems;
 use App\Models\Restaurant;
 use App\Models\Cuisine;
 use App\Models\Order;
+use App\Models\OrderedItem;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\User;
 
@@ -65,25 +67,29 @@ class RestController extends Controller
 
     public function orders()
     {
-        $restaurant = Auth::user();
-        $orders = $restaurant->orders;
-
+        $email = Auth::user()->email;
+        $orders = DB::table('restaurants')
+            ->join('restaurant_orders','restaurant_orders.rest_id','=','restaurants.id')
+            ->join('orders','restaurant_orders.order_id','=','orders.id')
+            ->where('status','!=','delivered')
+            ->where('restaurants.email',$email)
+            // ->join('ordered_items','ordered_items.order_id','=','orders.order_id')
+            // ->join('food_items','food_items.id','=','ordered_items.food_id')
+            ->select('orders.*')
+            ->get();
+            
         return view("restaurant.orders", compact("orders"));
     }
 
-
-    public function createOrder(Request $request)
-    {
-        $restaurant = Auth::user();
-        $customer = Auth::guard("web")->user();
-
-        $order = new Order;
-        $order->customer_id = $customer->id;
-        $order->restaurant_id = $restaurant->id;
-        $order->amount = $request->input("amount");
-        $order->status = "Pending";
-        $order->save();
-
-        return redirect()->route("restaurant.orders");
+    public function vieworder($id) {
+        $user = Auth::user();
+        $rest_id = Restaurant::where('email',$user->email)->first()->id;
+        $fooditems = OrderedItem::where('order_id',$id)
+            ->join('food_items','food_items.id','=','ordered_items.food_item_id')
+            ->where('food_items.rest_id',$rest_id)
+            ->get();
+        $cust_name = Order::find($id)->fname.Order::find($id)->lname;
+        return view('restaurant.order',compact('fooditems','id','cust_name'));
     }
+
 }
