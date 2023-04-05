@@ -1,6 +1,9 @@
 
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
-      <h1>Delivery Company Dashboard</h1>
+      <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+        <a class="sidebar-brand brand-logo" href="{{ url('/redirects') }}"><img src="admin/assets/images/logo.jpg" alt="logo" /></a>
+        {{-- <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="admin/assets/images/logo-mini.svg" alt="logo" /></a> --}}
+      </div>
       <ul class="nav">
         <li class="nav-item nav-category">
           <span class="nav-link">Navigation</span>

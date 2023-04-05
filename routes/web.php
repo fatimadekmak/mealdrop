@@ -6,6 +6,7 @@ use App\Http\Controllers\RestController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\DeliveryController;
+use App\Http\Controllers\NotificationController;
 use App\Models\DeliveryCompany;
 use App\Models\Restaurant;
 use Illuminate\Support\Facades\Route;
@@ -31,7 +32,8 @@ Route::get('/browsecuisines', [HomeController::class,'browsecuisines']);
 Route::view('/contact','contact');
 // view customer order history
 Route::get('/orderhistory/{id}',[HomeController::class,'orderhistory']);
-
+// reordering orders
+Route::get('/reorder/{id}',[HomeController::class,'reorder']);
 
 
 // cart page route
@@ -111,6 +113,12 @@ Route::get('markofd/{id}',[DeliveryController::class,'markofd']);
 Route::get('markdeliv/{id}',[DeliveryController::class,'markdeliv']);
 // toggle Availability of delivery company
 Route::get('/toggleAvailability',[DeliveryController::class,'toggleAvailability']);
+
+
+// notifications:
+Route::get('markread/{id}',[NotificationController::class,'markread']);
+Route::get('markallread',[NotificationController::class,'markallread']);
+
 
 
 //search

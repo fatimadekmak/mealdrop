@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Cart;
-use App\Models\DeliveryCompany;
-use App\Models\FoodItems;
+use App\Models\User;
 use App\Models\Order;
+use App\Models\FoodItems;
 use App\Models\OrderedItem;
+use Illuminate\Http\Request;
+use App\Models\DeliveryCompany;
+use App\Models\Restaurant;
 use App\Models\RestaurantOrder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\NewOrderNotification;
+use Illuminate\Support\Facades\Notification;
 
 class CartController extends Controller
 {
@@ -38,6 +43,9 @@ class CartController extends Controller
 
     public function processorder(Request $req) {
         $user_id = Auth::id();
+
+        $user_name = $req->fname.' '.$req->lname;
+
         $order = new Order();
         $order->user_id = $user_id;
         $order->del_id = $this->assignDelivery();
@@ -47,7 +55,7 @@ class CartController extends Controller
         $order->phone = $req->phoneNum;
         $order->note = $req->note;
         $order->save();
-        
+
         $total =0;
         $items = Cart::where('user_id',$user_id)->get();
         foreach($items as $item) {
@@ -66,11 +74,24 @@ class CartController extends Controller
                 $rest_order->order_id = $order->id;
                 $rest_order->rest_id = $rest_id;
                 $rest_order->save();
+
+                $rest = Restaurant::find($rest_id);
+                $rest_user = User::where('email',$rest->email)->first();
+                Notification::send($rest_user, new NewOrderNotification($order->id, $user_name));
+
             }
             $item->delete();
         }
         $order->total_price = $total;
         $order->update();
+        
+        $del = DB::table('delivery_companies')
+            ->join('users','users.email','=','delivery_companies.email')
+            ->where('delivery_companies.id',$order->del_id)
+            ->first();
+
+        Notification::send(User::find($del->id), new NewOrderNotification($order->id, $user_name));
+
         return redirect('/')->with('alert', 'Your order is being processed!');
     }
 

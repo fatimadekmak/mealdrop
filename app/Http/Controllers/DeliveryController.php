@@ -57,4 +57,5 @@ class DeliveryController extends Controller
         $order->update();
         return redirect()->back();
     }
+
 }
