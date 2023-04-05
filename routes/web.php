@@ -29,6 +29,8 @@ Route::get('/viewrestaurants', [HomeController::class,'viewrestaurants']);
 Route::get('/browsecuisines', [HomeController::class,'browsecuisines']);
 // contact page route
 Route::view('/contact','contact');
+// view customer order history
+Route::get('/orderhistory/{id}',[HomeController::class,'orderhistory']);
 
 
 

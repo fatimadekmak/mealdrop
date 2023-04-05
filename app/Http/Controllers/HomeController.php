@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Restaurant;
 use App\Models\FoodItems;
+use App\Models\Order;
+use App\Models\OrderedItem;
 use Illuminate\Support\Facades\DB;
 
 
@@ -78,6 +80,18 @@ class HomeController extends Controller
 
     public function deliveryForm() {
         return view('delivery.registerForm');
+    }
+
+    public function orderhistory($id) {
+        $orders = Order::where('user_id',$id)->get();
+        $order_items = array();
+        foreach($orders as $order) {
+            $order_items[$order->id] = OrderedItem::where('order_id',$order->id)
+                                            ->join('food_items','food_items.id','=','ordered_items.food_item_id')
+                                            ->select('ordered_items.*','food_items.name as food_name')
+                                            ->get();
+        }
+        return view('orderhistory',compact('orders','order_items'));
     }
 
 

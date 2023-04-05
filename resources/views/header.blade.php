@@ -63,7 +63,8 @@
 										<a @disabled(true)  href="#"  class="dropbtn" pr-4 pl-4"">{{ Auth::user()->name }}</a>
 										<div class="dropdown-content">
 										  <a class="nav-link pl-3" href="#" @disabled(true) style="cursor: default">{{ __('Manage Account') }}</a>
-										  <a class="nav-link pl-3" href="{{ route('profile.show') }}">{{ __('Profile') }}</a>
+										  <a class="nav-link pl-3" href="{{ url('/orderhistory',Auth::id()) }}">{{ __('Order History') }}</a>
+                                          <a class="nav-link pl-3" href="{{ route('profile.show') }}">{{ __('Profile') }}</a>
 										  
 										  <form method="POST" action="{{ route('logout') }}">
 											@csrf
