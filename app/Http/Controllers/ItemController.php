@@ -39,7 +39,7 @@ class ItemController extends Controller
             $cartItem->food_id = $id;
             $cartItem->quantity = $request->quantity;
             $cartItem->save();
-            return redirect()->back()->with('alert', 'Added to your cart!');
+            return redirect()->back();
         }
         else {
             return redirect('/login');

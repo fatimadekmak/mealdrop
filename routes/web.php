@@ -5,7 +5,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RestController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\CartController;
-
+use App\Http\Controllers\DeliveryController;
+use App\Models\DeliveryCompany;
 use App\Models\Restaurant;
 use Illuminate\Support\Facades\Route;
 
@@ -90,20 +91,24 @@ Route::get('/deletedel/{id}', [AdminController::class,'deletedel']);
 
 // in rest dashboard
 //Route::get('/orders', [AdminController::class,'restorders']);
-
 Route::get('/menu', [RestController::class,'menu']);
-
 Route::post('/addfood', [RestController::class,'addfood']);
-
 Route::get('/deleteitem/{id}', [RestController::class,'deleteitem']);
-
-
-//order
-//Route::post('/create-order', [App\Http\Controllers\RestController::class, 'createOrder'])->name('restaurant.createOrder');
-
-//orders
+//get restaurant's orders
 Route::get('/orders', [RestController::class,'orders']);
+// get a specific order info
+Route::get('/vieworder/{id}', [RestController::class,'vieworder']);
 
+
+// in delivery dashboard
+// get delivery orders
+Route::get('/deliveryorders',[DeliveryController::class,'deliveryorders']);
+// changing order status to out for delivery
+Route::get('markofd/{id}',[DeliveryController::class,'markofd']);
+// changing order status to delivered
+Route::get('markdeliv/{id}',[DeliveryController::class,'markdeliv']);
+// toggle Availability of delivery company
+Route::get('/toggleAvailability',[DeliveryController::class,'toggleAvailability']);
 
 
 //search

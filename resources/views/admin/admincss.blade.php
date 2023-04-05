@@ -18,3 +18,15 @@
 <link rel="stylesheet" href="admin/assets/css/style.css">
 <!-- End layout styles -->
 <link rel="shortcut icon" href="admin/assets/images/favicon.png" />
+
+<style>
+    .container-scroller {
+        overflow: scroll;
+    }
+
+
+    a {
+        color: black;
+        font-weight: bold;
+    }
+</style>
