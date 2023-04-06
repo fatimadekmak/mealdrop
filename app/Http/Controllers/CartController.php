@@ -41,14 +41,27 @@ class CartController extends Controller
         return redirect()->back();
     }
 
+    public function shipping() {
+        $id = Auth::id();
+        if(Cart::where('user_id',$id)->get()->isEmpty()) {
+            return redirect()->back()->with('alert', 'Your cart is Empty!');
+        }
+        return view('deliveryoptions');
+    }
+
     public function processorder(Request $req) {
         $user_id = Auth::id();
+
+        $del = $this->assignDelivery();
+        if($del == NULL) { //no available deliveries at the moment
+            return redirect()->back()->with('alert','No available deliveries. Try Again Later.');
+        }
 
         $user_name = $req->fname.' '.$req->lname;
 
         $order = new Order();
         $order->user_id = $user_id;
-        $order->del_id = $this->assignDelivery();
+        $order->del_id = $del->id;
         $order->fname = $req->fname;
         $order->lname = $req->lname;
         $order->shipping_addr = $req->address;
@@ -97,6 +110,6 @@ class CartController extends Controller
 
     public function assignDelivery(){
         $del_company = DeliveryCompany::where('available',1)->first();
-        return $del_company->id;
+        return $del_company;
     }
 }

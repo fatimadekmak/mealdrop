@@ -45,7 +45,7 @@
             <div class="container">
                 <div class="row slider-text justify-content-center" data-scrollax-parent="true">
                     <div class="container search_bar mt-5">
-                    <!-- livewire('restaurant-search') -->
+                        <!-- livewire('restaurant-search') -->
 
                         <form class="search_form" action="">
                             <input class="search_input" type="text" placeholder="what are you looking for?">
@@ -79,8 +79,9 @@
                     <div class="col-md-6 col-sm-12 ftco-animate">
                         <span class="subheading">Delicious</span>
                         <h1 class="mb-4">Italian Cuizine</h1>
-                        <p class="mb-4 mb-md-5">A small river named Duden flows by their place and supplies it with the
-                            necessary regelialia.</p>
+                        <p class="mb-4 mb-md-5">Italian cuisine is known for its simple, flavorful dishes that use
+                            fresh, high-quality ingredients and emphasize traditional techniques and regional
+                            specialties.</p>
                         <p><a href="/browsecuisines" class="btn btn-primary p-3 px-xl-4 py-xl-3">Browse Italian
                                 Cuisine</a> <a href="/browsecuisines"
                                 class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">Browse Other
@@ -108,8 +109,7 @@
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section ftco-animate text-center">
                     <h2 class="mb-4">Popular Restaurants</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-                        live the blind texts.</p>
+                    <p>Discover and explore a wide variety of dining options with our extensive list of restaurants.</p>
                 </div>
             </div>
         </div>
@@ -125,8 +125,8 @@
                     <h2 class="mb-4">Popular Cuisines</h2>
                     <p class="flip"><span class="deg1"></span><span class="deg2"></span><span
                             class="deg3"></span></p>
-                    <p class="mt-5">Far far away, behind the word mountains, far from the countries Vokalia and
-                        Consonantia, there live the blind texts.</p>
+                    <p class="mt-5">Discover a variety of cuisines from top restaurants in your area, and order online
+                        for delivery to your front door.</p>
                 </div>
             </div>
         </div>
@@ -147,35 +147,32 @@
                 <div class="col-md-4 ftco-animate">
                     <div class="media d-block text-center block-6 services">
                         <div class="icon d-flex justify-content-center align-items-center mb-5">
-                            <span class="flaticon-diet"></span>
+                            <span class="flaticon-pizza-1"></span>
                         </div>
                         <div class="media-body">
                             <h3 class="heading">Multiple Restaurants</h3>
-                            <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-                                unorthographic.</p>
+                            <p>MealDrop offers browsing multiple restaurants and ordering from them at the same time.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 ftco-animate">
                     <div class="media d-block text-center block-6 services">
                         <div class="icon d-flex justify-content-center align-items-center mb-5">
-                            <span class="flaticon-bicycle"></span>
+                            <span class="flaticon-diet"></span>
                         </div>
                         <div class="media-body">
                             <h3 class="heading">Pick your meals</h3>
-                            <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-                                unorthographic.</p>
+                            <p>Pick and choose your favorite items from our restaurants' menus.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 ftco-animate">
                     <div class="media d-block text-center block-6 services">
                         <div class="icon d-flex justify-content-center align-items-center mb-5"><span
-                                class="flaticon-pizza-1"></span></div>
+                                class="flaticon-bicycle"></span></div>
                         <div class="media-body">
                             <h3 class="heading">Fast Deliveries</h3>
-                            <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-                                unorthographic.</p>
+                            <p>Don't worry about picking up your meal. Your meal will be delivered to your front door.</p>
                         </div>
                     </div>
                 </div>
@@ -194,8 +191,8 @@
                         <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
                             <div class="block-18 text-center">
                                 <div class="text">
-                                    <div class="icon"><span class="flaticon-pizza-1"></span></div>
-                                    <strong class="number" data-number="100">0</strong>
+                                    <div class="icon"><span class="flaticon-chef"></span></div>
+                                    <strong class="number" data-number="169">0</strong>
                                     <span>Restaurants</span>
                                 </div>
                             </div>
@@ -203,8 +200,8 @@
                         <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
                             <div class="block-18 text-center">
                                 <div class="text">
-                                    <div class="icon"><span class="flaticon-medal"></span></div>
-                                    <strong class="number" data-number="85">0</strong>
+                                    <div class="icon"><span class="flaticon-pizza-1"></span></div>
+                                    <strong class="number" data-number="432">0</strong>
                                     <span>Orders</span>
                                 </div>
                             </div>
@@ -213,7 +210,7 @@
                             <div class="block-18 text-center">
                                 <div class="text">
                                     <div class="icon"><span class="flaticon-laugh"></span></div>
-                                    <strong class="number" data-number="10567">0</strong>
+                                    <strong class="number" data-number="123">0</strong>
                                     <span>Customers</span>
                                 </div>
                             </div>
@@ -221,8 +218,8 @@
                         <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
                             <div class="block-18 text-center">
                                 <div class="text">
-                                    <div class="icon"><span class="flaticon-chef"></span></div>
-                                    <strong class="number" data-number="900">0</strong>
+                                    <div class="icon"><span class="flaticon-bicycle"></span></div>
+                                    <strong class="number" data-number="11">0</strong>
                                     <span>Delivery Companies</span>
                                 </div>
                             </div>

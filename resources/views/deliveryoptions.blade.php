@@ -86,55 +86,6 @@
         </form>
     </div>
 
-    {{-- <div class="container">
-        <h1>Shipping</h1>
-        <p>Please enter your shipping details.</p>
-        <hr />
-        <div class="form">
-
-            <div class="fields fields--2">
-                <label class="field">
-                    <span class="field__label" for="firstname">First name</span>
-                    <input class="field__input" type="text" id="firstname" value="John" />
-                </label>
-                <label class="field">
-                    <span class="field__label" for="lastname">Last name</span>
-                    <input class="field__input" type="text" id="lastname" value="Doe" />
-                </label>
-            </div>
-            <label class="field">
-                <span class="field__label" for="address">Address</span>
-                <input class="field__input" type="text" id="address" />
-            </label>
-            <label class="field">
-                <span class="field__label" for="country">Country</span>
-                <select class="field__input" id="country">
-                    <option value=""></option>
-                    <option value="unitedstates">United States</option>
-                </select>
-            </label>
-            <div class="fields fields--3">
-                <label class="field">
-                    <span class="field__label" for="zipcode">Zip code</span>
-                    <input class="field__input" type="text" id="zipcode" />
-                </label>
-                <label class="field">
-                    <span class="field__label" for="city">City</span>
-                    <input class="field__input" type="text" id="city" />
-                </label>
-                <label class="field">
-                    <span class="field__label" for="state">State</span>
-                    <select class="field__input" id="state">
-                        <option value=""></option>
-                    </select>
-                </label>
-            </div>
-        </div>
-        <hr>
-        <button class="button">Continue</button>
-    </div> --}}
-
-
     <!-- loader -->
     <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
             <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4"
@@ -145,6 +96,16 @@
 
     {{-- <!-- FOOTER --------------------------------------------------------------------------> --}}
     @include('footer')
+
+    <script>
+        setTimeout(function() {
+            var msg = '{{ Session::get('alert') }}';
+            var exist = '{{ Session::has('alert') }}';
+            if (exist) {
+                alert(msg);
+            }
+        }, 500);
+    </script>
 
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.bundle.min.js"></script>

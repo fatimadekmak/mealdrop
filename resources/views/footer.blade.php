@@ -5,7 +5,7 @@
 			<div class="col-lg-12 col-md-12 mb-12 mb-md-12">
 				<div class="ftco-footer-widget mb-4">
 					<h2 class="ftco-heading-2">About Us</h2>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur vero soluta laborum harum maiores, odit iusto alias asperiores aperiam explicabo laudantium suscipit odio quisquam doloremque voluptatibus, quis ea aliquam voluptates nulla est omnis dicta esse mollitia sapiente? Beatae aspernatur, odio, est eum, accusantium eaque iste quasi pariatur ipsum molestias soluta?</p>
+					<p>Our website is a multivendor food ordering web application that aims to provide customers with a convenient and efficient way to order food online. We partner with a variety of local restaurants to offer a wide selection of cuisines and dishes, all available for delivery or pickup. Our platform is easy to use, with simple ordering and payment processes, and we pride ourselves on our timely and reliable delivery services.</p>
 					<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
 						<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
 						<li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>

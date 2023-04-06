@@ -28,7 +28,7 @@
                         </div>
                     @endif
                         @if ($loop->last)
-                            <a href="{{ url('markallread') }} id="mark-all" style="color:white">
+                            <a href="{{ url('markallread') }}" style="color:white">
                                 Mark all as read
                             </a>
                         @endif

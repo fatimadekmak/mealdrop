@@ -31,14 +31,14 @@
    ?> 
 			  "><a href="{{ url('/browsecuisines') }}"
                         class="nav-link">Cuisines</a></li>
-                <li class="nav-item 
+                {{-- <li class="nav-item 
 			 	<?php
    if (basename($_SERVER['PHP_SELF']) == 'contact') {
        echo 'active';
    }
    ?> 
 			  "><a href="{{ url('/contact') }}" class="nav-link">Contact</a>
-                </li>
+                </li> --}}
                 <li class="nav-item 
 			 	<?php
    if (basename($_SERVER['PHP_SELF']) == 'viewCart') {

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('charges_per_mile');
             $table->integer('nb_drivers');
             $table->string('working_hours');
-            $table->integer('available')->default(1);
+            $table->integer('available')->default(0);
             $table->integer('active')->default(0);
             $table->timestamps();
         });

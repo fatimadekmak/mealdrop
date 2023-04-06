@@ -60,8 +60,7 @@
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section ftco-animate text-center">
                     <h2 class="mb-4">Browse and Check your favorite cuisines</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-                        live the blind texts.</p>
+                    <p>Discover a variety of cuisines from top restaurants in your area, and order online for delivery or pickup.Discover a variety of cuisines from top restaurants in your area, and order online for delivery or pickup.</p>
                 </div>
             </div>
         </div>
