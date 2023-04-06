@@ -147,14 +147,10 @@
 
                 <div class="d-flex flex-wrap justify-content-between align-items-center pb-4">
                     <div class="mt-4">
-                        <label class="text-muted font-weight-normal">Promocode</label>
-                        <input type="text" placeholder="ABC" class="form-control">
+                        
                     </div>
                     <div class="d-flex">
-                        <div class="text-right mt-4 mr-5">
-                            <label class="text-muted font-weight-normal m-0">Discount</label>
-                            <div class="text-large"><strong>$20</strong></div>
-                        </div>
+                        
                         <div class="text-right mt-4">
                             <label class="text-muted font-weight-normal m-0">Total price</label>
                             <div class="text-large"><strong>${{ $sum }}</strong></div>
