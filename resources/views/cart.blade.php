@@ -181,6 +181,17 @@
     {{-- <!-- FOOTER --------------------------------------------------------------------------> --}}
     @include('footer')
     
+
+    <script>
+        setTimeout(function() {
+            var msg = '{{ Session::get('alert') }}';
+            var exist = '{{ Session::has('alert') }}';
+            if (exist) {
+                alert(msg);
+            }
+        }, 500);
+    </script>
+
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript"></script>

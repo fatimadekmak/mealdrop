@@ -58,8 +58,7 @@
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section ftco-animate text-center">
                     <h2 class="mb-4">Browse and Check the menus of your favorite restaurants</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-                        live the blind texts.</p>
+                    <p>Discover and explore a wide variety of dining options with our extensive list of restaurants.</p>
                 </div>
             </div>
         </div>

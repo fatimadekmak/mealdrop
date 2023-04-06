@@ -1,4 +1,4 @@
-<!--   <div class="row p-0 m-0 proBanner" id="proBanner">
+   {{-- <div class="row p-0 m-0 proBanner" id="proBanner">
       <div class="col-md-12 p-0 m-0">
         <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
           <div class="ps-lg-1">
@@ -16,11 +16,11 @@
           </div>
         </div>
       </div>
-    </div> -->
+    </div>  --}}
 <!-- partial:partials/_sidebar.html -->
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-        <a class="sidebar-brand brand-logo" href="{{ url('/redirects') }}"><img src="admin/assets/images/logo.jpg"
+        <a class="sidebar-brand brand-logo" href="{{ url('/redirects') }}"><img src="{{ asset('admin/assets/images/logo.jpg') }}"
                 alt="logo" /></a>
         {{-- <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="admin/assets/images/logo-mini.svg" alt="logo" /></a> --}}
     </div>

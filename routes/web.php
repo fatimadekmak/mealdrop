@@ -29,7 +29,7 @@ Route::get('/viewrestaurants', [HomeController::class,'viewrestaurants']);
 // cuisines page route
 Route::get('/browsecuisines', [HomeController::class,'browsecuisines']);
 // contact page route
-Route::view('/contact','contact');
+// Route::view('/contact','contact');
 // view customer order history
 Route::get('/orderhistory/{id}',[HomeController::class,'orderhistory']);
 // reordering orders
@@ -43,7 +43,8 @@ Route::get('/cartdelete/{id}', [CartController::class,'cartdelete']);
 // updating a record in cart
 Route::post('/cartupdate/{id}', [CartController::class,'cartupdate']);
 // checking out route
-Route::view('/shipping', 'deliveryoptions');
+// Route::view('/shipping', 'deliveryoptions');
+Route::get('/shipping', [CartController::class,'shipping']);
 // Route::post('/shipping',[CartController::class,'processorder']);
 //processing order
 Route::post('/order',[CartController::class,'processorder']);
@@ -118,8 +119,8 @@ Route::get('/toggleAvailability',[DeliveryController::class,'toggleAvailability'
 
 
 // notifications:
-Route::get('markread/{id}',[NotificationController::class,'markread']);
-Route::get('markallread',[NotificationController::class,'markallread']);
+Route::get('/markread/{id}',[NotificationController::class,'markread']);
+Route::get('/markallread',[NotificationController::class,'markallread']);
 
 
 
