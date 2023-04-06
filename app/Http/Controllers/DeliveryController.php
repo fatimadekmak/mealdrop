@@ -28,9 +28,7 @@ class DeliveryController extends Controller
             ->join('restaurants','restaurants.id','=','restaurant_orders.rest_id')
             ->select('restaurants.name as rest_name','restaurants.address as rest_add','orders.*')
             ->where('del_id',$del_id)
-            ->where('status','pending')
-            ->orWhere('status','out_for_delivery')
-            
+            ->whereIn('status',['pending','out_for_delivery'])
             ->get();
         return view('delivery.deliveryorders', compact('orders','color','text'));
         
