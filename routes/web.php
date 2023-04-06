@@ -51,6 +51,8 @@ Route::post('/order',[CartController::class,'processorder']);
 
 // viewing menu of a specific restaurant
 Route::get('/viewmenu/{id}', [ItemController::class,'viewmenu']);
+// leaving a review on a restaurant
+Route::post('/postReview/{id}', [ItemController::class,'postReview']);
 // viewing restaurants and food items of a specific cuisine
 Route::get('/cuisine/{id}', [ItemController::class,'viewcuisine']);
 // adding a food item to cart
