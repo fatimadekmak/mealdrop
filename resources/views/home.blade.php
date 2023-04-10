@@ -3,7 +3,9 @@
 
 <head>
     <title>MealDrop</title>
-    <link rel="icon" href="images/logo.png.jpg">
+
+
+    <link rel="icon" href="{{ asset('images/logo.png.jpg') }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -11,25 +13,52 @@
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="{{ asset('css/open-iconic-bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
 
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
 
-    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="{{ asset('css/aos.css') }}">
 
-    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="{{ asset('css/ionicons.min.css') }}">
 
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/jquery.timepicker.css') }}">
 
 
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ asset('css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
 </head>
+
+
+
+@if (Session::has('message'))
+    <div id="welkomBericht" class="fade-message"
+        style=" color: #FFFFFF;
+  background: #8b0000;
+  border: 1px solid #a33a3a;
+  font-size: 1.4em;">
+        {{ Session::get('message') }}
+    </div>
+
+    <script>
+        $(function() {
+            setTimeout(function() {
+                $('.fade-message').slideUp();
+            }, 5000);
+        });
+    </script>
+@endif
+
+
 
 <body>
 
@@ -45,18 +74,22 @@
             <div class="container">
                 <div class="row slider-text justify-content-center" data-scrollax-parent="true">
                     <div class="container search_bar mt-5">
-                        <!-- livewire('restaurant-search') -->
 
-                        <form class="search_form" action="">
-                            <input class="search_input" type="text" placeholder="what are you looking for?">
-                            <select name="filter" class="search_filter">
-                                <option value="no-filter" selected>Filter</option>
-                                <option value="cuisine">Cuisines</option>
-                                <option value="meal">Meals</option>
+
+                        <form class="search_form" action="{{ route('searchfilter') }}" method="GET">
+
+                            <input class="search_input text-light" name="search" type="text"
+                                placeholder="what are you looking for?" required>
+                            <select name="filter" class="search_filter" required>
+                                <option value="" disabled selected hidden>Filter</option>
                                 <option value="restaurant">Restaurants</option>
+                                <option value="cuisine">Cuisines</option>
+                                <option value="fooditems">Food Items</option>
                             </select>
                             <button class="search_btn" type="submit">Search</button>
                         </form>
+
+
                     </div>
                     <div class="col-md-7 col-sm-12 text-center ftco-animate">
                         <span class="subheading">Welcome to MealDrop</span>
@@ -69,31 +102,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="slider-item">
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="row slider-text align-items-center" data-scrollax-parent="true">
-
-                    <div class="col-md-6 col-sm-12 ftco-animate">
-                        <span class="subheading">Delicious</span>
-                        <h1 class="mb-4">Italian Cuizine</h1>
-                        <p class="mb-4 mb-md-5">Italian cuisine is known for its simple, flavorful dishes that use
-                            fresh, high-quality ingredients and emphasize traditional techniques and regional
-                            specialties.</p>
-                        <p><a href="/browsecuisines" class="btn btn-primary p-3 px-xl-4 py-xl-3">Browse Italian
-                                Cuisine</a> <a href="/browsecuisines"
-                                class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">Browse Other
-                                Cuisines</a></p>
-                    </div>
-                    <div class="col-md-6 ftco-animate">
-                        <img src="images/bg_1.png" class="img-fluid" alt="">
-                    </div>
-
-                </div>
-            </div>
-        </div>
         </div>
 
     </section>
@@ -151,7 +159,8 @@
                         </div>
                         <div class="media-body">
                             <h3 class="heading">Multiple Restaurants</h3>
-                            <p>MealDrop offers browsing multiple restaurants and ordering from them at the same time.</p>
+                            <p>MealDrop offers browsing multiple restaurants and ordering from them at the same time.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -172,7 +181,8 @@
                                 class="flaticon-bicycle"></span></div>
                         <div class="media-body">
                             <h3 class="heading">Fast Deliveries</h3>
-                            <p>Don't worry about picking up your meal. Your meal will be delivered to your front door.</p>
+                            <p>Don't worry about picking up your meal. Your meal will be delivered to your front door.
+                            </p>
                         </div>
                     </div>
                 </div>
