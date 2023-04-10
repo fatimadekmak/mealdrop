@@ -123,12 +123,8 @@ Route::get('/markread/{id}',[NotificationController::class,'markread']);
 Route::get('/markallread',[NotificationController::class,'markallread']);
 
 
-
 //search
-
-
-
-
+Route::get('/searchfilter', [HomeController::class,'searchfilter'])->name('searchfilter');
 
 
 

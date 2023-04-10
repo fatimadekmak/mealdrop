@@ -107,24 +107,25 @@ class HomeController extends Controller
         return view('orderhistory', compact('orders', 'order_items'));
     }
 
-    public function reorder($id) {
+    public function reorder($id)
+    {
         $order = Order::find($id);
         $order->status = 'pending';
-        
-        $rests = RestaurantOrder::where('order_id',$id)->get();
-        foreach($rests as $rest) {
-                $resto = Restaurant::find($rest->rest_id);
-                $rest_user = User::where('email',$resto->email)->first();
-                Notification::send($rest_user, new NewOrderNotification($order->id, $order->fname.' '.$order->lname));
+
+        $rests = RestaurantOrder::where('order_id', $id)->get();
+        foreach ($rests as $rest) {
+            $resto = Restaurant::find($rest->rest_id);
+            $rest_user = User::where('email', $resto->email)->first();
+            Notification::send($rest_user, new NewOrderNotification($order->id, $order->fname . ' ' . $order->lname));
         }
-        $order->del_id = DeliveryCompany::where('available',1)->first()->id;
+        $order->del_id = DeliveryCompany::where('available', 1)->first()->id;
         $order->save();
         $del = DB::table('delivery_companies')
-        ->join('users','users.email','=','delivery_companies.email')
-        ->where('delivery_companies.id',$order->del_id)
-        ->first();
+            ->join('users', 'users.email', '=', 'delivery_companies.email')
+            ->where('delivery_companies.id', $order->del_id)
+            ->first();
 
-        Notification::send(User::find($del->id), new NewOrderNotification($id,  $order->fname.' '.$order->lname));
+        Notification::send(User::find($del->id), new NewOrderNotification($id,  $order->fname . ' ' . $order->lname));
         return redirect()->back();
     }
 
@@ -144,6 +145,53 @@ class HomeController extends Controller
             return view('delivery.delhome');
         else {
             return view('home', compact('data'));
+        }
+    }
+
+
+
+    public function searchfilter(Request $request)
+    {
+        $query = $request->search;
+        $filter = $request->filter;
+
+        if ($filter == 'restaurant') {
+            $result = Restaurant::where('name', 'LIKE', $query)->paginate(8);
+            $rn = Restaurant::where('name', $query)->first();
+            if ($rn == null) {
+                return redirect('/')->with('message', 'No Results');
+            } else {
+                $rid = $rn->id;
+                $url = 'http://127.0.0.1:8000/viewmenu/' . $rid;
+                return redirect($url);
+            }
+        }
+
+        if ($filter == 'cuisine') {
+            $result = Cuisine::where('name', 'LIKE', $query)->paginate(8);
+            $cn = Cuisine::where('name', $query)->first();
+            if ($cn == null) {
+                return redirect('/')->with('message', 'No Results');
+            } else {
+                $cid = $cn->id;
+                $url = 'http://127.0.0.1:8000/cuisine/' . $cid;
+                return redirect($url);
+            }
+        }
+
+        if ($filter == 'fooditems') {
+            $result = FoodItems::where('name', 'LIKE', '%' . $query . '%')->paginate(8);
+            if ($result->isEmpty()) {
+                return redirect('/')->with('message', 'No Results');
+            } else {
+                $menu_links = $result->map(function ($item) {
+                    $rest_id = $item->rest_id;
+                    $restaurant = Restaurant::find($rest_id);
+                    $menu_link = 'http://127.0.0.1:8000/viewmenu/' . $restaurant->id;
+                    return $menu_link;
+                });
+                return view('searchfood', compact('query', 'filter', 'result', 'menu_links'));
+            }
         }
     }
 }
