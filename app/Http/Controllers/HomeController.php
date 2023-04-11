@@ -156,7 +156,6 @@ class HomeController extends Controller
         $filter = $request->filter;
 
         if ($filter == 'restaurant') {
-            $result = Restaurant::where('name', 'LIKE', $query)->paginate(8);
             $rn = Restaurant::where('name', $query)->first();
             if ($rn == null) {
                 return redirect('/')->with('message', 'No Results');
@@ -168,7 +167,6 @@ class HomeController extends Controller
         }
 
         if ($filter == 'cuisine') {
-            $result = Cuisine::where('name', 'LIKE', $query)->paginate(8);
             $cn = Cuisine::where('name', $query)->first();
             if ($cn == null) {
                 return redirect('/')->with('message', 'No Results');
@@ -180,7 +178,7 @@ class HomeController extends Controller
         }
 
         if ($filter == 'fooditems') {
-            $result = FoodItems::where('name', 'LIKE', '%' . $query . '%')->paginate(8);
+            $result = FoodItems::where('name', 'LIKE', '%' . $query . '%')->paginate(5);
             if ($result->isEmpty()) {
                 return redirect('/')->with('message', 'No Results');
             } else {
