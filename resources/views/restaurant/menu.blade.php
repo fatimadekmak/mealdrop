@@ -23,33 +23,32 @@
                 <div class="line">
                     <label for="input">Name</label>
                     <div class="input">
-                        <input type="text" name="name" required>
+                        <input class="form-control text-light" type="text" name="name" required>
                     </div>
                 </div>
 
                 <div class="line">
                     <label for="input">Price</label>
                     <div class="input">
-                        <input type="number" name="price" required>
+                        <input class="form-control text-light" type="number" name="price" required>
                     </div>
                 </div>
 
                 <div class="line">
                     <label for="input">Description</label>
                     <div class="input">
-                        <input type="text" name="description" required>
+                        <input class="form-control text-light" type="text" name="description" required>
                     </div>
                 </div>
 
                 <div class="line">
                     <label for="input">Cuisine</label>
                     <div class="input">
-                        <input type="text" name="cuisine" required>
+                        <input class="form-control text-light" type="text" name="cuisine" required>
                     </div>
                 </div>
-                <!-- class="input2" -->
 
-                <input type="submit" name="save" value="save">
+                <input class="btn btn-light pb-4" type="submit" name="save" value="save">
 
 
             </form>

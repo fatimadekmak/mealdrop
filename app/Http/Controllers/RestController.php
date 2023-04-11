@@ -69,27 +69,53 @@ class RestController extends Controller
     {
         $email = Auth::user()->email;
         $orders = DB::table('restaurants')
-            ->join('restaurant_orders','restaurant_orders.rest_id','=','restaurants.id')
-            ->join('orders','restaurant_orders.order_id','=','orders.id')
-            ->where('status','!=','delivered')
-            ->where('restaurants.email',$email)
+            ->join('restaurant_orders', 'restaurant_orders.rest_id', '=', 'restaurants.id')
+            ->join('orders', 'restaurant_orders.order_id', '=', 'orders.id')
+            ->where('status', '!=', 'delivered')
+            ->where('restaurants.email', $email)
             // ->join('ordered_items','ordered_items.order_id','=','orders.order_id')
             // ->join('food_items','food_items.id','=','ordered_items.food_id')
             ->select('orders.*')
             ->get();
-            
+
         return view("restaurant.orders", compact("orders"));
     }
 
-    public function vieworder($id) {
-        $user = Auth::user();
-        $rest_id = Restaurant::where('email',$user->email)->first()->id;
-        $fooditems = OrderedItem::where('order_id',$id)
-            ->join('food_items','food_items.id','=','ordered_items.food_item_id')
-            ->where('food_items.rest_id',$rest_id)
-            ->get();
-        $cust_name = Order::find($id)->fname.Order::find($id)->lname;
-        return view('restaurant.order',compact('fooditems','id','cust_name'));
+    public function updateRest()
+    {
+        $email = Auth::user()->email;
+        $rest = Restaurant::where('email', $email)->first();
+        return view('restaurant.updateRest', compact('rest'));
     }
 
+    public function updateInfo(Request $r)
+    {
+
+        $rest = Restaurant::find($r->rest_id);
+        $rest->name = $r->name;
+        $rest->address = $r->address;
+        $rest->phone = $r->phone;
+        $rest->opening_time = $r->opening_time;
+        if ($r->image != null) {
+            $path = 'restaurantImages';
+            $file = $r->image->getClientOriginalName();
+            $rest->image = $file;
+            $r->image->move(public_path($path), $file);
+        }
+        $rest->update();
+
+        return redirect()->back();
+    }
+
+    public function vieworder($id)
+    {
+        $user = Auth::user();
+        $rest_id = Restaurant::where('email', $user->email)->first()->id;
+        $fooditems = OrderedItem::where('order_id', $id)
+            ->join('food_items', 'food_items.id', '=', 'ordered_items.food_item_id')
+            ->where('food_items.rest_id', $rest_id)
+            ->get();
+        $cust_name = Order::find($id)->fname . Order::find($id)->lname;
+        return view('restaurant.order', compact('fooditems', 'id', 'cust_name'));
+    }
 }
