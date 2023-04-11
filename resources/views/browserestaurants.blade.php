@@ -1,5 +1,4 @@
 <div class="container-wrap">
-
     <div class="row no-gutters d-flex">
         @foreach ($rests as $rest)
             <div class="col-lg-4 d-flex ftco-animate">
@@ -18,7 +17,6 @@
         @endforeach
 
     </div>
-
 </div>
 
 

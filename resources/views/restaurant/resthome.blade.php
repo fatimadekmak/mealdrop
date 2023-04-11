@@ -27,11 +27,11 @@
                             </a>
                         </div>
                     @endif
-                        @if ($loop->last)
-                            <a href="{{ url('markallread') }}" style="color:white">
-                                Mark all as read
-                            </a>
-                        @endif
+                    @if ($loop->last)
+                        <a href="{{ url('markallread') }}" style="color:white">
+                            Mark all as read
+                        </a>
+                    @endif
                 @empty
                     There are no new notifications
                 @endforelse
