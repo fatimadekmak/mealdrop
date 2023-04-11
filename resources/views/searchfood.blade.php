@@ -80,7 +80,7 @@
                 @endforeach
             </tbody>
         </table>
-
+        <br>
         {{ $result->appends(['search' => $query, 'filter' => $filter])->links() }}
     </div>
 
