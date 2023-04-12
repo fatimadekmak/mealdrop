@@ -180,6 +180,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
     echo "Error: " . $conn->error;
     }
 
-    echo "database mealdrop is successfully created!\n";
-    echo "follow the next instructions in README file";
+    echo "<br><div class='container'><h3 class='text-danger'>database mealdrop is successfully created!</h3><br>";
+    echo "<h4>follow the next instructions in README file</h4></div>";
 ?>
