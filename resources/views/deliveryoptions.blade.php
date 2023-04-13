@@ -62,19 +62,19 @@
             @csrf
             <div class="col-md-5 m-2">
                 <label for="fname" class="form-label">First Name</label><br>
-                <input type="text" class="form-control-box" name="fname">
+                <input type="text" class="form-control-box" name="fname" required>
             </div>
             <div class="col-md-5 m-2">
                 <label for="lname" class="form-label">Last Name</label><br>
-                <input type="text" class="form-control-box" name="lname">
+                <input type="text" class="form-control-box" name="lname" required>
             </div>
             <div class="col-md-5 m-2">
                 <label for="address" class="form-label">Address</label><br>
-                <input type="text" class="form-control-box" name="address" placeholder="1234 Main St">
+                <input type="text" class="form-control-box" name="address" placeholder="1234 Main St" required>
             </div>
             <div class="col-md-5 m-2">
                 <label for="phoneNum" class="form-label">Phone Number</label><br>
-                <input type="text" class="form-control-box" name="phoneNum">
+                <input type="text" class="form-control-box" name="phoneNum" required>
             </div>
             <div class="col-md-10 m-2">
                 <label for="note" class="form-label">Notes</label><br>
