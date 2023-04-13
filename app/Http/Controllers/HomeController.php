@@ -96,6 +96,9 @@ class HomeController extends Controller
 
     public function orderhistory($id)
     {
+        if(Auth::user() && Auth::user()->user_type != 0) {
+            return redirect()->back()->with('alert',"You do not have access to this feature");
+        }
         $orders = Order::where('user_id', $id)->get();
         $order_items = array();
         foreach ($orders as $order) {

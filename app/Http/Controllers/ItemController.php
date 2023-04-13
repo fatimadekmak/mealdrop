@@ -24,7 +24,7 @@ class ItemController extends Controller
 
     public function postReview(Request $req, $id)
     {
-        if (Auth::user()) {
+        if (Auth::user() && Auth::user()->user_type == 0) {
             $review = new Review();
             $review->user_id = Auth::id();
             $review->user_name = Auth::user()->name;
@@ -33,6 +33,9 @@ class ItemController extends Controller
             $review->rest_id = $id;
             $review->save();
             return redirect()->back();
+        }
+        else if(Auth::user()) {
+            return redirect()->back()->with('alert',"You do not have access to this feature");
         }
         else {
             return redirect('login');
@@ -55,7 +58,7 @@ class ItemController extends Controller
     public function addToCart(Request $request, $id)
     {
 
-        if (Auth::id()) {
+        if (Auth::user() && Auth::user()->user_type == 0) {
             $user_id = Auth::id();
             $cartItem = new Cart();
             $cartItem->user_id = $user_id;
@@ -63,7 +66,10 @@ class ItemController extends Controller
             $cartItem->quantity = $request->quantity;
             $cartItem->save();
             return redirect()->back();
-        } else {
+        } else if(Auth::user()) {
+            return redirect()->back()->with('alert',"You do not have access to this feature");
+        }
+        else {
             return redirect('/login');
         }
     }

@@ -20,6 +20,9 @@ class CartController extends Controller
 {
 
     public function viewcart(Request $req, $id) {
+        if(Auth::user()->user_type != 0) {
+            return redirect()->back()->with('alert',"You do not have access to this feature");
+        }
         $items = Cart::where('user_id',$id)
             ->join('food_items','carts.food_id','=','food_items.id')
             ->join('restaurants','food_items.rest_id','=','restaurants.id')
@@ -50,8 +53,10 @@ class CartController extends Controller
     }
 
     public function processorder(Request $req) {
+        if(Auth::user()->user_type != 0) {
+            return redirect()->back()->with('alert',"You do not have access to this feature");
+        }
         $user_id = Auth::id();
-
         $del = $this->assignDelivery();
         if($del == NULL) { //no available deliveries at the moment
             return redirect()->back()->with('alert','No available deliveries. Try Again Later.');
