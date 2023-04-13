@@ -248,118 +248,118 @@ if ($conn->multi_query($sql)) {
 
 //indexes for tables
 $sql = "ALTER TABLE `carts`
-            ADD PRIMARY KEY (`id`),
-            ADD KEY `carts_user_id_foreign` (`user_id`),
-            ADD KEY `carts_food_id_foreign` (`food_id`);
-            
-            --
-            -- Indexes for table `cuisines`
-            --
-            ALTER TABLE `cuisines`
-            ADD PRIMARY KEY (`id`),
-            ADD UNIQUE KEY `cuisines_name_unique` (`name`);
-            
-            --
-            -- Indexes for table `delivery_companies`
-            --
-            ALTER TABLE `delivery_companies`
-            ADD PRIMARY KEY (`id`);
-            
-            --
-            -- Indexes for table `failed_jobs`
-            --
-            ALTER TABLE `failed_jobs`
-            ADD PRIMARY KEY (`id`),
-            ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
-            
-            --
-            -- Indexes for table `food_items`
-            --
-            ALTER TABLE `food_items`
-            ADD PRIMARY KEY (`id`),
-            ADD KEY `food_items_rest_id_foreign` (`rest_id`),
-            ADD KEY `food_items_cuisine_foreign` (`cuisine`);
-            
-            --
-            -- Indexes for table `migrations`
-            --
-            ALTER TABLE `migrations`
-            ADD PRIMARY KEY (`id`);
-            
-            --
-            -- Indexes for table `notifications`
-            --
-            ALTER TABLE `notifications`
-            ADD PRIMARY KEY (`id`),
-            ADD KEY `notifications_notifiable_type_notifiable_id_index` (`notifiable_type`,`notifiable_id`);
-            
-            --
-            -- Indexes for table `ordered_items`
-            --
-            ALTER TABLE `ordered_items`
-            ADD PRIMARY KEY (`id`),
-            ADD KEY `ordered_items_order_id_foreign` (`order_id`),
-            ADD KEY `ordered_items_food_item_id_foreign` (`food_item_id`);
-            
-            --
-            -- Indexes for table `orders`
-            --
-            ALTER TABLE `orders`
-            ADD PRIMARY KEY (`id`),
-            ADD KEY `orders_user_id_foreign` (`user_id`),
-            ADD KEY `orders_del_id_foreign` (`del_id`);
-            
-            --
-            -- Indexes for table `password_reset_tokens`
-            --
-            ALTER TABLE `password_reset_tokens`
-            ADD PRIMARY KEY (`email`);
-            
-            --
-            -- Indexes for table `personal_access_tokens`
-            --
-            ALTER TABLE `personal_access_tokens`
-            ADD PRIMARY KEY (`id`),
-            ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
-            ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
-            
-            --
-            -- Indexes for table `restaurants`
-            --
-            ALTER TABLE `restaurants`
-            ADD PRIMARY KEY (`id`),
-            ADD KEY `restaurants_cuisine_foreign` (`cuisine`);
-            
-            --
-            -- Indexes for table `restaurant_orders`
-            --
-            ALTER TABLE `restaurant_orders`
-            ADD PRIMARY KEY (`id`),
-            ADD KEY `restaurant_orders_rest_id_foreign` (`rest_id`),
-            ADD KEY `restaurant_orders_order_id_foreign` (`order_id`);
-            
-            --
-            -- Indexes for table `reviews`
-            --
-            ALTER TABLE `reviews`
-            ADD PRIMARY KEY (`id`),
-            ADD KEY `reviews_user_id_foreign` (`user_id`),
-            ADD KEY `reviews_rest_id_foreign` (`rest_id`);
-            
-            --
-            -- Indexes for table `sessions`
-            --
-            ALTER TABLE `sessions`
-            ADD PRIMARY KEY (`id`),
-            ADD KEY `sessions_user_id_index` (`user_id`),
-            ADD KEY `sessions_last_activity_index` (`last_activity`);
-            
-            --
-            -- Indexes for table `users`
-            --
-            ALTER TABLE `users`
-            ADD PRIMARY KEY (`id`),
-            ADD UNIQUE KEY `users_email_unique` (`email`);
+        ADD PRIMARY KEY (`id`),
+        ADD KEY `carts_user_id_foreign` (`user_id`),
+        ADD KEY `carts_food_id_foreign` (`food_id`);
+
+        --
+        -- Indexes for table `cuisines`
+        --
+        ALTER TABLE `cuisines`
+        ADD PRIMARY KEY (`id`),
+        ADD UNIQUE KEY `cuisines_name_unique` (`name`);
+
+        --
+        -- Indexes for table `delivery_companies`
+        --
+        ALTER TABLE `delivery_companies`
+        ADD PRIMARY KEY (`id`);
+
+        --
+        -- Indexes for table `failed_jobs`
+        --
+        ALTER TABLE `failed_jobs`
+        ADD PRIMARY KEY (`id`),
+        ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+        --
+        -- Indexes for table `food_items`
+        --
+        ALTER TABLE `food_items`
+        ADD PRIMARY KEY (`id`),
+        ADD KEY `food_items_rest_id_foreign` (`rest_id`),
+        ADD KEY `food_items_cuisine_foreign` (`cuisine`);
+
+        --
+        -- Indexes for table `migrations`
+        --
+        ALTER TABLE `migrations`
+        ADD PRIMARY KEY (`id`);
+
+        --
+        -- Indexes for table `notifications`
+        --
+        ALTER TABLE `notifications`
+        ADD PRIMARY KEY (`id`),
+        ADD KEY `notifications_notifiable_type_notifiable_id_index` (`notifiable_type`,`notifiable_id`);
+
+        --
+        -- Indexes for table `ordered_items`
+        --
+        ALTER TABLE `ordered_items`
+        ADD PRIMARY KEY (`id`),
+        ADD KEY `ordered_items_order_id_foreign` (`order_id`),
+        ADD KEY `ordered_items_food_item_id_foreign` (`food_item_id`);
+
+        --
+        -- Indexes for table `orders`
+        --
+        ALTER TABLE `orders`
+        ADD PRIMARY KEY (`id`),
+        ADD KEY `orders_user_id_foreign` (`user_id`),
+        ADD KEY `orders_del_id_foreign` (`del_id`);
+
+        --
+        -- Indexes for table `password_reset_tokens`
+        --
+        ALTER TABLE `password_reset_tokens`
+        ADD PRIMARY KEY (`email`);
+
+        --
+        -- Indexes for table `personal_access_tokens`
+        --
+        ALTER TABLE `personal_access_tokens`
+        ADD PRIMARY KEY (`id`),
+        ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
+        ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
+
+        --
+        -- Indexes for table `restaurants`
+        --
+        ALTER TABLE `restaurants`
+        ADD PRIMARY KEY (`id`),
+        ADD KEY `restaurants_cuisine_foreign` (`cuisine`);
+
+        --
+        -- Indexes for table `restaurant_orders`
+        --
+        ALTER TABLE `restaurant_orders`
+        ADD PRIMARY KEY (`id`),
+        ADD KEY `restaurant_orders_rest_id_foreign` (`rest_id`),
+        ADD KEY `restaurant_orders_order_id_foreign` (`order_id`);
+
+        --
+        -- Indexes for table `reviews`
+        --
+        ALTER TABLE `reviews`
+        ADD PRIMARY KEY (`id`),
+        ADD KEY `reviews_user_id_foreign` (`user_id`),
+        ADD KEY `reviews_rest_id_foreign` (`rest_id`);
+
+        --
+        -- Indexes for table `sessions`
+        --
+        ALTER TABLE `sessions`
+        ADD PRIMARY KEY (`id`),
+        ADD KEY `sessions_user_id_index` (`user_id`),
+        ADD KEY `sessions_last_activity_index` (`last_activity`);
+
+        --
+        -- Indexes for table `users`
+        --
+        ALTER TABLE `users`
+        ADD PRIMARY KEY (`id`),
+        ADD UNIQUE KEY `users_email_unique` (`email`);
             ";
 if ($conn->multi_query($sql)) {
     // Loop through each result set (if any) and free memory
@@ -375,79 +375,79 @@ if ($conn->multi_query($sql)) {
 
 //autoincrements for tables
 $sql = "ALTER TABLE `carts`
-            MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-        
-            --
-            -- AUTO_INCREMENT for table `cuisines`
-            --
-            ALTER TABLE `cuisines`
-                MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-            
-            --
-            -- AUTO_INCREMENT for table `delivery_companies`
-            --
-            ALTER TABLE `delivery_companies`
-                MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-            
-            --
-            -- AUTO_INCREMENT for table `failed_jobs`
-            --
-            ALTER TABLE `failed_jobs`
-                MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-            
-            --
-            -- AUTO_INCREMENT for table `food_items`
-            --
-            ALTER TABLE `food_items`
-                MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-            
-            --
-            -- AUTO_INCREMENT for table `migrations`
-            --
-            ALTER TABLE `migrations`
-                MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-            
-            --
-            -- AUTO_INCREMENT for table `ordered_items`
-            --
-            ALTER TABLE `ordered_items`
-                MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-            
-            --
-            -- AUTO_INCREMENT for table `orders`
-            --
-            ALTER TABLE `orders`
-                MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-            
-            --
-            -- AUTO_INCREMENT for table `personal_access_tokens`
-            --
-            ALTER TABLE `personal_access_tokens`
-                MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-            
-            --
-            -- AUTO_INCREMENT for table `restaurants`
-            --
-            ALTER TABLE `restaurants`
-                MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-            
-            --
-            -- AUTO_INCREMENT for table `restaurant_orders`
-            --
-            ALTER TABLE `restaurant_orders`
-                MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-            
-            --
-            -- AUTO_INCREMENT for table `reviews`
-            --
-            ALTER TABLE `reviews`
-                MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-            
-            --
-            -- AUTO_INCREMENT for table `users`
-            --
-            ALTER TABLE `users`
-                MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+        MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+        --
+        -- AUTO_INCREMENT for table `cuisines`
+        --
+        ALTER TABLE `cuisines`
+        MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+        --
+        -- AUTO_INCREMENT for table `delivery_companies`
+        --
+        ALTER TABLE `delivery_companies`
+        MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+        --
+        -- AUTO_INCREMENT for table `failed_jobs`
+        --
+        ALTER TABLE `failed_jobs`
+        MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+        --
+        -- AUTO_INCREMENT for table `food_items`
+        --
+        ALTER TABLE `food_items`
+        MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+        --
+        -- AUTO_INCREMENT for table `migrations`
+        --
+        ALTER TABLE `migrations`
+        MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+        --
+        -- AUTO_INCREMENT for table `ordered_items`
+        --
+        ALTER TABLE `ordered_items`
+        MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+        --
+        -- AUTO_INCREMENT for table `orders`
+        --
+        ALTER TABLE `orders`
+        MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+        --
+        -- AUTO_INCREMENT for table `personal_access_tokens`
+        --
+        ALTER TABLE `personal_access_tokens`
+        MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+        --
+        -- AUTO_INCREMENT for table `restaurants`
+        --
+        ALTER TABLE `restaurants`
+        MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+        --
+        -- AUTO_INCREMENT for table `restaurant_orders`
+        --
+        ALTER TABLE `restaurant_orders`
+        MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+        --
+        -- AUTO_INCREMENT for table `reviews`
+        --
+        ALTER TABLE `reviews`
+        MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+        --
+        -- AUTO_INCREMENT for table `users`
+        --
+        ALTER TABLE `users`
+        MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
             ";
 
 if ($conn->multi_query($sql)) {
@@ -464,49 +464,49 @@ if ($conn->multi_query($sql)) {
 
 //constraints for tables
 $sql = "ALTER TABLE `carts`
-            ADD CONSTRAINT `carts_food_id_foreign` FOREIGN KEY (`food_id`) REFERENCES `food_items` (`id`) ON DELETE CASCADE,
-            ADD CONSTRAINT `carts_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
-            
-            --
-            -- Constraints for table `food_items`
-            --
-            ALTER TABLE `food_items`
-                ADD CONSTRAINT `food_items_cuisine_foreign` FOREIGN KEY (`cuisine`) REFERENCES `cuisines` (`id`) ON DELETE CASCADE,
-                ADD CONSTRAINT `food_items_rest_id_foreign` FOREIGN KEY (`rest_id`) REFERENCES `restaurants` (`id`) ON DELETE CASCADE;
-            
-            --
-            -- Constraints for table `ordered_items`
-            --
-            ALTER TABLE `ordered_items`
-                ADD CONSTRAINT `ordered_items_food_item_id_foreign` FOREIGN KEY (`food_item_id`) REFERENCES `food_items` (`id`) ON DELETE CASCADE,
-                ADD CONSTRAINT `ordered_items_order_id_foreign` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE;
-            
-            --
-            -- Constraints for table `orders`
-            --
-            ALTER TABLE `orders`
-                ADD CONSTRAINT `orders_del_id_foreign` FOREIGN KEY (`del_id`) REFERENCES `delivery_companies` (`id`) ON DELETE CASCADE,
-                ADD CONSTRAINT `orders_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
-            
-            --
-            -- Constraints for table `restaurants`
-            --
-            ALTER TABLE `restaurants`
-                ADD CONSTRAINT `restaurants_cuisine_foreign` FOREIGN KEY (`cuisine`) REFERENCES `cuisines` (`id`) ON DELETE CASCADE;
-            
-            --
-            -- Constraints for table `restaurant_orders`
-            --
-            ALTER TABLE `restaurant_orders`
-                ADD CONSTRAINT `restaurant_orders_order_id_foreign` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE,
-                ADD CONSTRAINT `restaurant_orders_rest_id_foreign` FOREIGN KEY (`rest_id`) REFERENCES `restaurants` (`id`) ON DELETE CASCADE;
-            
-            --
-            -- Constraints for table `reviews`
-            --
-            ALTER TABLE `reviews`
-                ADD CONSTRAINT `reviews_rest_id_foreign` FOREIGN KEY (`rest_id`) REFERENCES `restaurants` (`id`) ON DELETE CASCADE,
-                ADD CONSTRAINT `reviews_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+        ADD CONSTRAINT `carts_food_id_foreign` FOREIGN KEY (`food_id`) REFERENCES `food_items` (`id`) ON DELETE CASCADE,
+        ADD CONSTRAINT `carts_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+        --
+        -- Constraints for table `food_items`
+        --
+        ALTER TABLE `food_items`
+        ADD CONSTRAINT `food_items_cuisine_foreign` FOREIGN KEY (`cuisine`) REFERENCES `cuisines` (`id`) ON DELETE CASCADE,
+        ADD CONSTRAINT `food_items_rest_id_foreign` FOREIGN KEY (`rest_id`) REFERENCES `restaurants` (`id`) ON DELETE CASCADE;
+
+        --
+        -- Constraints for table `ordered_items`
+        --
+        ALTER TABLE `ordered_items`
+        ADD CONSTRAINT `ordered_items_food_item_id_foreign` FOREIGN KEY (`food_item_id`) REFERENCES `food_items` (`id`) ON DELETE CASCADE,
+        ADD CONSTRAINT `ordered_items_order_id_foreign` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE;
+
+        --
+        -- Constraints for table `orders`
+        --
+        ALTER TABLE `orders`
+        ADD CONSTRAINT `orders_del_id_foreign` FOREIGN KEY (`del_id`) REFERENCES `delivery_companies` (`id`) ON DELETE CASCADE,
+        ADD CONSTRAINT `orders_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+        --
+        -- Constraints for table `restaurants`
+        --
+        ALTER TABLE `restaurants`
+        ADD CONSTRAINT `restaurants_cuisine_foreign` FOREIGN KEY (`cuisine`) REFERENCES `cuisines` (`id`) ON DELETE CASCADE;
+
+        --
+        -- Constraints for table `restaurant_orders`
+        --
+        ALTER TABLE `restaurant_orders`
+        ADD CONSTRAINT `restaurant_orders_order_id_foreign` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE,
+        ADD CONSTRAINT `restaurant_orders_rest_id_foreign` FOREIGN KEY (`rest_id`) REFERENCES `restaurants` (`id`) ON DELETE CASCADE;
+
+        --
+        -- Constraints for table `reviews`
+        --
+        ALTER TABLE `reviews`
+        ADD CONSTRAINT `reviews_rest_id_foreign` FOREIGN KEY (`rest_id`) REFERENCES `restaurants` (`id`) ON DELETE CASCADE,
+        ADD CONSTRAINT `reviews_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
             ";
 if ($conn->multi_query($sql)) {
     // Loop through each result set (if any) and free memory
