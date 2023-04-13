@@ -18,7 +18,7 @@
 
             <form name="additem" action="{{ url('updateInfo') }}" method="post" role="form"
                 enctype="multipart/form-data">
-                <h2>Add Item</h2>
+                <h2>Edit Profile</h2>
                 @csrf
                 <!--<div class="settings"> -->
                 <div class="line">
