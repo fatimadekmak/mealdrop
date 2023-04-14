@@ -45,8 +45,8 @@ INSERT INTO `restaurants` (`id`, `name`, `email`, `image`, `address`, `phone`, `
 --
 
 INSERT INTO `delivery_companies` (`id`, `name`, `email`, `phone`, `charges_per_mile`, `nb_drivers`, `working_hours`, `available`, `active`, `created_at`, `updated_at`) VALUES
-(1, 'Toroto Delivery', 'toroto.del@gmail.com', '01-774575', '\$0.8-\$1.2', 15, '8:00-00:00', 0, 1, '2023-04-03 14:06:09', '2023-04-12 12:15:36'),
-(2, 'Fasto Delivery', 'fasto.del@gmail.com', '05-754587', '\$0.8-\$1.2', 10, '9:00-22:00', 1, 1, '2023-04-03 14:06:52', '2023-04-04 18:52:35'),
+(1, 'Toroto Delivery', 'toroto.del@gmail.com', '01-774575', '\$0.8-\$1.2', 15, '8:00-00:00', 1, 1, '2023-04-03 14:06:09', '2023-04-12 12:15:36'),
+(2, 'Fasto Delivery', 'fasto.del@gmail.com', '05-754587', '\$0.8-\$1.2', 10, '9:00-22:00', 0, 1, '2023-04-03 14:06:52', '2023-04-04 18:52:35'),
 (3, 'QuadBro', 'quadbro@gmail.com', '08-754545', '\$0.8-\$1.4', 18, '8:00-1:00', 1, 1, '2023-04-03 14:07:48', '2023-04-05 15:04:11'),
 (4, 'Tnen', 'tnen@gmail.com', '03-875785', '\$0.4-\$0.8', 8, '10:00-22:00', 0, 0, '2023-04-03 15:06:20', '2023-04-03 15:06:20'),
 (5, 'Farma', 'farma@gmail.com', '03-454545', '\$0.7-\$1.0', 12, '8:00-00:00', 0, 0, '2023-04-03 15:07:21', '2023-04-03 15:07:21');
