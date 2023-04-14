@@ -4,26 +4,47 @@ Meal Drop is an innovative and user-friendly multi-vendor food ordering platform
 
 ## Installation
 
-1. Download the zip file of the project and unzip it into htdocs (or www/projects if using Wamp server).
+1. Download the zip file of the project.
 2. Make a copy of `.env.example` and rename it to `.env` and **edit** your Database connection information (PORT, USERNAME, PASSWORD). Keep database name as mealdropdb.
 3. Start your server and visit `localhost/mealdrop/install` to create database and database tables and insert data.
-4. In the directory of the project, open `installer.cmd`. This runs the follow commands for you. (You don't need to run them yourself)
+4. In the directory of the project, open `installer.cmd`. This will run the following commands for you.
 
->`composer install`
+> `composer install`
 
->`php artisan key:generate`
+> `php artisan key:generate`
 
->`npm install`
+> `npm install`
 
->`npm run build`
+> `npm run build`
 
->`php artisan serve`
+> `php artisan serve`
 
 ## For testing Purposes
-### User Types:
-- 0: Customer
-- 1: Admin
-- 2: Restaurant
-- 3: Delivery Company
 
-*all users passwords are '123123123'*
+### Usable Customer Accounts:
+- email: `fatima@gmail.com`, password: `123123123`
+- email: `israa@gmail.com`, password: `123123123`
+
+### Usable Admin Account:
+- email: `admin@gmail.com`, password: `123123123`
+
+### Usable Delivery Accounts:
+- email: `toroto.del@gmail.com`, password: `123123123`
+- email: `quadbro@gmail.com`, password: `123123123`
+
+### Usable Restaurant Accounts:
+- email: `lakkis@gmail.com`, password: `123123123`
+- email: `hindi@gmail.com`, password: `123123123`
+
+### User Types (in users table):
+- `0`: Customer
+- `1`: Admin
+- `2`: Restaurant
+- `3`: Delivery Company
+
+### Registering as a Customer:
+ You just need to register and your account is created for you (with usertype = 0)
+ 
+### Registering as a Restaurant or Delivery Account:
+ You need to send a request form to the admin from the register page.
+ Admin will create your account with usertype = 2 or usertype = 3 if your request was accepted.
