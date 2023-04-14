@@ -19,6 +19,8 @@ Meal Drop is an innovative and user-friendly multi-vendor food ordering platform
 
 > `php artisan serve`
 
+Note: This installation was tested on different environments (different devices on both wamp and xampp servers) and it was successful. If you face any problem creating the database using the install folder, kindly created the database 'mealdrop' manually and import the 'mealdrop.sql' in the sql files folder submitted along with the project. You may also contact me on my email: [fatima.k.dokmak@gmail.com]
+
 ## For testing Purposes
 
 ### Usable Customer Accounts:
