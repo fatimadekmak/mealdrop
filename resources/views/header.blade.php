@@ -62,11 +62,11 @@
 									<div class="dropdown nav-link">
 										<a @disabled(true)  href="#"  class="dropbtn" pr-4 pl-4"">{{ Auth::user()->name }}</a>
 										<div class="dropdown-content">
-										  {{-- <a class="nav-link pl-3" href="#" @disabled(true) style="cursor: default">{{ __('Manage Account') }}</a> --}}
-										  @if (auth::user()->user_type == 0) 
-                                            <a class="nav-link pl-3" href="{{ url('/orderhistory',Auth::id()) }}">{{ __('Order History') }}</a>
-                                          @endif
-                                            {{-- <a class="nav-link pl-3" href="{{ route('profile.show') }}">{{ __('Profile') }}</a> --}}
+										    @if (auth::user()->user_type == 0) 
+                                                <a class="nav-link pl-3" href="{{ url('/orderhistory',Auth::id()) }}">{{ __('Order History') }}</a>
+                                            @else
+                                            <a class="nav-link pl-3" href="{{ url('/redirects')}}">{{ __('Dashboard') }}</a>
+                                            @endif
 										  
 										  <form method="POST" action="{{ route('logout') }}">
 											@csrf

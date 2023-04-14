@@ -90,6 +90,10 @@
                             <x-dropdown-link href="{{ route('profile.show') }}">
                                 {{ __('Profile') }}
                             </x-dropdown-link> --}}
+                            {{-- @if (Auth::user() && Auth::user()->user_type!=0) --}}
+                            <x-dropdown-link href="{{ url('/') }}">
+                                {{ __('Meal Drop Home') }}
+                            </x-dropdown-link>
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-dropdown-link href="{{ route('api-tokens.index') }}">
