@@ -4,7 +4,7 @@ Meal Drop is an innovative and user-friendly multi-vendor food ordering platform
 
 ## Installation
 
-1. CLone/Download the zip file of the project.
+1. Clone/Download the zip file of the project.
 2. Make a copy of `.env.example` and rename it to `.env` and **edit** your Database connection information (PORT, USERNAME, PASSWORD). Keep database name as mealdropdb.
 3. Start your server and visit `localhost/mealdrop/install` to create database and database tables and insert data. If a connection error occurs, you may need to edit the servername in install/index.php to "localhost:portnum" (ex: "localhost:3307")
 4. In the directory of the project, open `installer.cmd`. This will run the following commands for you.
@@ -19,7 +19,7 @@ Meal Drop is an innovative and user-friendly multi-vendor food ordering platform
 
 > `php artisan serve`
 
-Note:  This installation was tested on different environments (different devices on both wamp and xampp servers) and it was successful. If you face any problem creating the database using the install folder, kindly created the database 'mealdrop' manually and import the 'mealdropdb.sql' in the sql files folder submitted along with the project. If you face any problem while running the installer.cmd, kindly try running every command at a time to find were the problem occurs.  
+Note:  This installation was tested on different environments (different devices on both wamp and xampp servers) and it was successful. If you face any problem creating the database using the install folder, kindly create the database 'mealdropdb' manually and import the 'mealdropdb.sql' in the sql files folder submitted along with the project. If you face any problem while running the installer.cmd, kindly try running every command at a time to find were the problem occurs.  
 You may also contact me on my email: [fatima.k.dokmak@gmail.com]
 
 ## For testing Purposes
